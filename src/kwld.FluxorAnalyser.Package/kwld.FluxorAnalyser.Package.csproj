@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>kwld.FluxorAnalyser</PackageId>
+    <PackageVersion>1.0.0.0</PackageVersion>
+    <Authors>Derek Kowald</Authors>
+    <Product>Kwld Tooling Fluxor Analyser</Product>
+    <Title>Fluxor Analyser</Title>
+    <PackageLicenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/Dkowald/kwd.Tooling</PackageProjectUrl>
+    <PackageIconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</PackageIconUrl>
+    <RepositoryUrl>https://github.com/Dkowald/kwd.Tooling.git</RepositoryUrl>
+    <PackageReadmeFile>Readme.md</PackageReadmeFile>
+    <Copyright>Copyright (c) Derek Kowald 2023.</Copyright>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Description>C# Code analyser for Fluxor</Description>
+    <PackageReleaseNotes>
+      Initial rules for use with Fluxor
+    </PackageReleaseNotes>
+    <Copyright>Copyright</Copyright>
+    <PackageTags>analyzers, c#, fluxor</PackageTags>
+    <DevelopmentDependency>true</DevelopmentDependency>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
+
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);_AddAnalyzersToOutput</TargetsForTfmSpecificContentInPackage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\kwld.FluxorAnalyser\kwld.FluxorAnalyser.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Readme.md" Pack="true" PackagePath="" />
+    <Content Include="icon.png" Pack="true" PackagePath="\" />
+    <None Include="icon.svg" Pack="false" />
+    <None Update="tools\*.ps1" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <Target Name="_AddAnalyzersToOutput">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include="$(OutputPath)\kwld.FluxorAnalyser.dll" PackagePath="analyzers/dotnet/cs" />
+    </ItemGroup>
+  </Target>
+
+</Project>

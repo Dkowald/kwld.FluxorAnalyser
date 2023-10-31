@@ -1,0 +1,13 @@
+﻿
+<h3>UserProfile</h3>
+<p>
+  Welcome: @State.Name
+</p>
+<p>
+  
+</p>
+@inject IState<UserProfileState> FuxState
+@inherits FluxorComponent
+@code {
+    UserProfileState State => FuxState.Value;
+}
