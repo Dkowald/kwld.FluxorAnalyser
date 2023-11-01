@@ -20,9 +20,10 @@ namespace kwld.FluxorAnalyser
     internal const string MetNameIDispatcher = "Fluxor.IDispatcher";
     internal const string MetaNameFeatureState = "Fluxor.FeatureStateAttribute";
     internal const string MetaNameEffectMethod = "Fluxor.EffectMethodAttribute";
+    internal const string MetaNameReducerMethod = "Fluxor.ReducerMethodAttribute";
     internal const string MetaNameTask = "System.Threading.Tasks.Task";
     
-    internal static readonly DiagnosticDescriptor RequireInheritFluxorComponent =
+    internal static readonly DiagnosticDescriptor Flx001RequireInheritFluxorComponent =
       new DiagnosticDescriptor(id: "FLX001",
         title: Resources.FLX001_Title,
         description: Resources.FLX001_Description,
@@ -31,7 +32,7 @@ namespace kwld.FluxorAnalyser
         defaultSeverity: DiagnosticSeverity.Error,
         isEnabledByDefault: true);
 
-    internal static readonly DiagnosticDescriptor DecorateFeatureState =
+    internal static readonly DiagnosticDescriptor Flx002DecorateFeatureState =
       new DiagnosticDescriptor(id: "FLX002",
        title: Resources.FLX002_Title,
        description:Resources.FLX002_Description,
@@ -42,7 +43,7 @@ namespace kwld.FluxorAnalyser
        helpLinkUri: "https://"
     );
 
-    internal static readonly DiagnosticDescriptor FeatureStateDefaultCtor =
+    internal static readonly DiagnosticDescriptor Flx003FeatureStateDefaultCtor =
       new DiagnosticDescriptor(id: "FLX003",
         title: Resources.FLX003_Title,
         description: Resources.FLX003_Description,
@@ -53,7 +54,7 @@ namespace kwld.FluxorAnalyser
         helpLinkUri: "https://"
       );
 
-    internal static readonly DiagnosticDescriptor EffectMethodReturn =
+    internal static readonly DiagnosticDescriptor Flx004EffectMethodReturn =
       new DiagnosticDescriptor(id: "FLX004",
         title: Resources.FLX004_Title,
         description: Resources.FLX004_Description,
@@ -62,7 +63,7 @@ namespace kwld.FluxorAnalyser
         defaultSeverity: DiagnosticSeverity.Error,
         isEnabledByDefault: true);
 
-    internal static readonly DiagnosticDescriptor EffectMethodMissingAction =
+    internal static readonly DiagnosticDescriptor Flx005EffectMethodMissingAction =
       new DiagnosticDescriptor(id: "FLX005",
         title: Resources.FLX005_Title,
         description:Resources.FLX005_Description,
@@ -71,7 +72,7 @@ namespace kwld.FluxorAnalyser
         defaultSeverity: DiagnosticSeverity.Error,
         isEnabledByDefault: true);
 
-    internal static readonly DiagnosticDescriptor EffectMethodMissingDispatcher =
+    internal static readonly DiagnosticDescriptor Flx006EffectMethodMissingDispatcher =
       new DiagnosticDescriptor(id: "FLX006",
         title: Resources.FLX006_Title,
         description: Resources.FLX006_Description,
@@ -80,13 +81,49 @@ namespace kwld.FluxorAnalyser
         defaultSeverity: DiagnosticSeverity.Error,
         isEnabledByDefault: true);
 
-    internal static readonly DiagnosticDescriptor EffectMethodParameterOrder =
+    internal static readonly DiagnosticDescriptor Flx007EffectMethodSignature =
       new DiagnosticDescriptor(id: "FLX007",
         title: Resources.FLX007_Title,
         description: Resources.FLX007_Description,
         messageFormat: Resources.FLX007_Message,
         category: "Usage",
         defaultSeverity: DiagnosticSeverity.Error,
+        isEnabledByDefault: true);
+
+    internal static readonly DiagnosticDescriptor Flx008ReducerMissingAction =
+      new DiagnosticDescriptor(id: "FLX008",
+        title: Resources.FLX008_Title,
+        description: Resources.FLX008_Description,
+        messageFormat: Resources.FLX008_Message,
+        category: "Usage",
+        defaultSeverity: DiagnosticSeverity.Error,
+        isEnabledByDefault: true);
+
+    internal static readonly DiagnosticDescriptor Flx009ReducerMissingState =
+      new DiagnosticDescriptor(id: "FLX009",
+        title: Resources.FLX009_Title,
+        description: Resources.FLX009_Description,
+        messageFormat:Resources.FLX009_Message,
+        category: "Usage",
+        defaultSeverity: DiagnosticSeverity.Error,
+        isEnabledByDefault: true);
+
+    internal static readonly DiagnosticDescriptor Flx010ReducerInvalidSignature =
+      new DiagnosticDescriptor(id: "FLX010",
+        title: Resources.FLX010_Title,
+        description: Resources.FLX010_Description,
+        messageFormat: Resources.FLX010_Message,
+        category: "Usage",
+        defaultSeverity: DiagnosticSeverity.Error,
+        isEnabledByDefault: true);
+
+    internal static readonly DiagnosticDescriptor Flx011ReducerShouldBeStatic =
+      new DiagnosticDescriptor(id: "FLX011",
+        title: Resources.FLX011_Title,
+        description: Resources.FLX011_Description,
+        messageFormat: Resources.FLX011_Message,
+        category: "Reliability",
+        defaultSeverity: DiagnosticSeverity.Warning,
         isEnabledByDefault: true);
 
     public override void Initialize(AnalysisContext context)
@@ -104,19 +141,26 @@ namespace kwld.FluxorAnalyser
         SyntaxKind.ClassDeclaration, SyntaxKind.RecordDeclaration );
 
       context.RegisterSyntaxNodeAction(CheckEffectMethodSignature, SyntaxKind.MethodDeclaration);
+
+      context.RegisterSyntaxNodeAction(CheckReducerMethodSignature, SyntaxKind.MethodDeclaration);
     }
 
     public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics
       => new[]
       {
-        RequireInheritFluxorComponent,
-        DecorateFeatureState,
-        FeatureStateDefaultCtor,
+        Flx001RequireInheritFluxorComponent,
+        Flx002DecorateFeatureState,
+        Flx003FeatureStateDefaultCtor,
 
-        EffectMethodReturn,
-        EffectMethodMissingAction,
-        EffectMethodMissingDispatcher,
-        EffectMethodParameterOrder
+        Flx004EffectMethodReturn,
+        Flx005EffectMethodMissingAction,
+        Flx006EffectMethodMissingDispatcher,
+        Flx007EffectMethodSignature,
+
+        Flx010ReducerInvalidSignature,
+        Flx009ReducerMissingState,
+        Flx008ReducerMissingAction,
+        Flx011ReducerShouldBeStatic
 
       }.ToImmutableArray();
 
@@ -155,7 +199,7 @@ namespace kwld.FluxorAnalyser
       var location = injectsState.Locations[0];
       
       ctx.ReportDiagnostic(
-        Diagnostic.Create(RequireInheritFluxorComponent,
+        Diagnostic.Create(Flx001RequireInheritFluxorComponent,
           location,
           DiagnosticSeverity.Error,
           null, null));
@@ -194,7 +238,8 @@ namespace kwld.FluxorAnalyser
 
       var location = node.TypeArgumentList.Arguments[0].GetLocation();
       ctx.ReportDiagnostic(Diagnostic.Create(
-        DecorateFeatureState, location));
+        Flx002DecorateFeatureState, location,
+        messageArgs: featureState.ShortName()));
     }
 
     static void CheckFeatureStateHasDefaultCtor(SyntaxNodeAnalysisContext ctx)
@@ -219,7 +264,8 @@ namespace kwld.FluxorAnalyser
         cls.GetLocation();
 
       var error = Diagnostic.Create(
-        FeatureStateDefaultCtor, location);
+        Flx003FeatureStateDefaultCtor, location,
+        messageArgs: definition.ShortName());
 
       ctx.ReportDiagnostic(error);
     }
@@ -228,7 +274,7 @@ namespace kwld.FluxorAnalyser
     {
       var op = (MethodDeclarationSyntax)ctx.Node;
 
-      var opDef = ctx.SemanticModel.GetDeclaredSymbol(op) as IMethodSymbol;
+      var opDef = ctx.SemanticModel.GetDeclaredSymbol(op);
       if(opDef == null)return;
 
       var effectAttrib = opDef.GetAttributes()
@@ -238,7 +284,8 @@ namespace kwld.FluxorAnalyser
       if (opDef.ReturnType.FullName() != MetaNameTask)
       {
         ctx.ReportDiagnostic(Diagnostic.Create(
-          EffectMethodReturn, op.GetLocation()));
+          Flx004EffectMethodReturn, op.GetLocation(),
+          messageArgs: opDef.ShortName()));
         return;
       }
 
@@ -250,26 +297,105 @@ namespace kwld.FluxorAnalyser
             opDef.Parameters[0].Type.FullName() != MetNameIDispatcher)
         {
           ctx.ReportDiagnostic(Diagnostic.Create(
-            EffectMethodMissingDispatcher, op.GetLocation()));
+            Flx006EffectMethodMissingDispatcher, op.GetLocation(),
+            messageArgs: opDef.ShortName()));
           return;
         }
       }
 
       if (!hasAttributeArg)
       {
-        if (opDef.Parameters.Length != 2)
+        if (opDef.Parameters.Length > 2)
         {
           ctx.ReportDiagnostic(Diagnostic.Create(
-            EffectMethodMissingAction, op.GetLocation()));
+            Flx007EffectMethodSignature,op.GetLocation(),
+            messageArgs: opDef.ShortName()));
+          return;
+        }
+
+        if (opDef.Parameters.Length < 2)
+        {
+          ctx.ReportDiagnostic(Diagnostic.Create(
+            Flx005EffectMethodMissingAction, op.GetLocation(),
+            messageArgs: opDef.ShortName()));
           return;
         }
 
         if (opDef.Parameters[1].Type.FullName() != MetNameIDispatcher)
         {
           ctx.ReportDiagnostic(Diagnostic.Create(
-              EffectMethodParameterOrder, op.GetLocation()
-            ));
+              Flx006EffectMethodMissingDispatcher, op.GetLocation(),
+              messageArgs: opDef.ShortName()));
         }
+      }
+    }
+
+    static void CheckReducerMethodSignature(SyntaxNodeAnalysisContext ctx)
+    {
+      var op = (MethodDeclarationSyntax)ctx.Node;
+
+      var def = ctx.SemanticModel.GetDeclaredSymbol(op);
+      if(def is null)return;
+
+      var attrib = def.GetAttributes().FirstOrDefault(a =>
+        a.AttributeClass.FullName() == MetaNameReducerMethod);
+      if(attrib is null)return;
+
+      if (!def.IsStatic)
+      {
+        ctx.ReportDiagnostic(Diagnostic.Create(
+          Flx011ReducerShouldBeStatic,
+          op.GetLocation(), 
+          messageArgs: def.ShortName()));
+      }
+
+      var actionType = attrib.ConstructorArguments.SingleOrDefault();
+
+      if (actionType.IsNull)
+      {
+        if (def.Parameters.Length != 2)
+        {
+          ctx.ReportDiagnostic(Diagnostic.Create(
+            Flx008ReducerMissingAction,
+            op.GetLocation(),
+            messageArgs: def.ShortName() ));
+          return;
+        }
+      }
+
+      if (!actionType.IsNull)
+      {
+        if (def.Parameters.Length != 1)
+        {
+          ctx.ReportDiagnostic(Diagnostic.Create(
+            Flx009ReducerMissingState,
+            op.GetLocation(),
+            messageArgs: def.ShortName()
+            ));
+          return;
+        }
+      }
+
+      var stateType = def.ReturnType;
+      var isFeatureState = stateType.GetAttributes().Any(a =>
+        a.AttributeClass.FullName() == MetaNameFeatureState);
+      if (!isFeatureState)
+      {
+        ctx.ReportDiagnostic(Diagnostic.Create(
+          Flx009ReducerMissingState,
+          op.GetLocation(),
+          messageArgs: def.ShortName()));
+        return;
+      }
+
+      if (stateType.FullName() != def.Parameters[0].Type.FullName())
+      {
+        ctx.ReportDiagnostic(Diagnostic.Create(
+          Flx010ReducerInvalidSignature,
+          op.GetLocation(),
+          messageArgs: def.ShortName()
+          ));
+        return;
       }
     }
   }

@@ -1,4 +1,4 @@
-﻿using DemoBlazorApp.Features.User.Store;
+﻿using DemoBlazorApp.Features.User.Store.Actions;
 using Fluxor;
 
 namespace DemoBlazorApp.Features.User

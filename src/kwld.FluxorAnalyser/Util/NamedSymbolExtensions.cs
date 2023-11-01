@@ -42,9 +42,6 @@ namespace kwld.FluxorAnalyser.Util
       return str.ToString();
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
     internal static bool Inherits(this INamedTypeSymbol symbol, string baseTypeName)
     {
       var curBase = symbol.BaseType;
@@ -56,5 +53,8 @@ namespace kwld.FluxorAnalyser.Util
 
       return curBase != null;
     }
+
+    internal static string ShortName(this ISymbol symbol)
+      => symbol.ToDisplayString(SymbolDisplayFormat.CSharpShortErrorMessageFormat);
   }
 }

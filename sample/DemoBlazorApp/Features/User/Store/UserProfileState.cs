@@ -1,4 +1,6 @@
-﻿namespace DemoBlazorApp.Features.User.Store
+﻿using Fluxor;
+
+namespace DemoBlazorApp.Features.User.Store
 {
   //[FeatureState]
   public record UserProfileState
@@ -9,6 +11,12 @@
     {
         public UserProfileState()
             :this("Guest", "Guest@Nowhere.com") { }
+
+
+      //Missing target action.
+      [ReducerMethod] 
+      public static UserProfileState UpdateEmail(UserProfileState state)
+        => state{}
     }
 }
 

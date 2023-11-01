@@ -21,7 +21,7 @@
     <EmbeddedResource Include="Assets/*" Exclude="Assets/Files.cs" />
     <EmbeddedResource Include="generated/**/*" />
   </ItemGroup>
-
+  
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.3.2" />

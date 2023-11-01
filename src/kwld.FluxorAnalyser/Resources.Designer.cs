@@ -248,5 +248,113 @@ namespace kwld.FluxorAnalyser {
                 return ResourceManager.GetString("FLX007_Title", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reducer methods must either take a action as a argument, or .
+        /// </summary>
+        internal static string FLX008_Description {
+            get {
+                return ResourceManager.GetString("FLX008_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reducer method {0} should consume a action as first argument; or declare the  action type in ReducerMethodAttribute constructor.
+        /// </summary>
+        internal static string FLX008_Message {
+            get {
+                return ResourceManager.GetString("FLX008_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reducer method missing action.
+        /// </summary>
+        internal static string FLX008_Title {
+            get {
+                return ResourceManager.GetString("FLX008_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reducer methods must take a feature state argument..
+        /// </summary>
+        internal static string FLX009_Description {
+            get {
+                return ResourceManager.GetString("FLX009_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reducer method {0} is missing a feature state parameter..
+        /// </summary>
+        internal static string FLX009_Message {
+            get {
+                return ResourceManager.GetString("FLX009_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reducer method missing feature state.
+        /// </summary>
+        internal static string FLX009_Title {
+            get {
+                return ResourceManager.GetString("FLX009_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reducer methods must take a feature state argument..
+        /// </summary>
+        internal static string FLX010_Description {
+            get {
+                return ResourceManager.GetString("FLX010_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reducer method {0} is missing a feature state parameter..
+        /// </summary>
+        internal static string FLX010_Message {
+            get {
+                return ResourceManager.GetString("FLX010_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reducer method missing feature state.
+        /// </summary>
+        internal static string FLX010_Title {
+            get {
+                return ResourceManager.GetString("FLX010_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reducer methods should be pure functions, best implemented as a static method..
+        /// </summary>
+        internal static string FLX011_Description {
+            get {
+                return ResourceManager.GetString("FLX011_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reducer method {0} should be a static pure function..
+        /// </summary>
+        internal static string FLX011_Message {
+            get {
+                return ResourceManager.GetString("FLX011_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reducer method should be static.
+        /// </summary>
+        internal static string FLX011_Title {
+            get {
+                return ResourceManager.GetString("FLX011_Title", resourceCulture);
+            }
+        }
     }
 }

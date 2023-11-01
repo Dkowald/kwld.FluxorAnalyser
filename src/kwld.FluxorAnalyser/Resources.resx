@@ -163,13 +163,13 @@
     <value>Effect method missing action</value>
   </data>
   <data name="FLX006_Description" xml:space="preserve">
-    <value>Effect methods should include a IDispatcher argument.</value>
+    <value>Effect methods should include a IDispatcher as last argument.</value>
   </data>
   <data name="FLX006_Message" xml:space="preserve">
-    <value>Effect method {0} missing IDispatcher argument.</value>
+    <value>Effect method {0} last argument must be IDispatcher.</value>
   </data>
   <data name="FLX006_Title" xml:space="preserve">
-    <value>Effect method should use IDispatcher</value>
+    <value>Effect method last argument should be IDispatcher</value>
   </data>
   <data name="FLX007_Description" xml:space="preserve">
     <value>Effect methods should consume action as first parameter</value>
@@ -180,4 +180,65 @@
   <data name="FLX007_Title" xml:space="preserve">
     <value>Effect method argument order</value>
   </data>
+
+  <data name="FLX008_Description" xml:space="preserve">
+    <value>Reducer methods must either take a action as a argument, or </value>
+  </data>
+  <data name="FLX008_Message" xml:space="preserve">
+    <value>Reducer method {0} should consume a action as first argument; or declare the  action type in ReducerMethodAttribute constructor</value>
+  </data>
+  <data name="FLX008_Title" xml:space="preserve">
+    <value>Reducer method missing action</value>
+  </data>
+
+  <data name="FLX009_Description" xml:space="preserve">
+    <value>Reducer methods must take a feature state argument.</value>
+  </data>
+  <data name="FLX009_Message" xml:space="preserve">
+    <value>Reducer method {0} is missing a feature state parameter.</value>
+  </data>
+  <data name="FLX009_Title" xml:space="preserve">
+    <value>Reducer method missing feature state</value>
+  </data>
+
+  <data name="FLX009_Description" xml:space="preserve">
+    <value>Reducer methods must take a feature state argument.</value>
+  </data>
+  <data name="FLX009_Message" xml:space="preserve">
+    <value>Reducer method {0} is missing a feature state parameter.</value>
+  </data>
+  <data name="FLX009_Title" xml:space="preserve">
+    <value>Reducer method missing feature state</value>
+  </data>
+
+  <data name="FLX010_Description" xml:space="preserve">
+    <value>Reducer methods must have expected signature.</value>
+  </data>
+  <data name="FLX010_Message" xml:space="preserve">
+    <value>Reducer method {0} has wrong signature.</value>
+  </data>
+  <data name="FLX010_Title" xml:space="preserve">
+    <value>Reducer method signature</value>
+  </data>
+
+  <data name="FLX011_Description" xml:space="preserve">
+    <value>Reducer methods should be pure functions, best implemented as a static method.</value>
+  </data>
+  <data name="FLX011_Message" xml:space="preserve">
+    <value>Reducer method {0} should be a static pure function.</value>
+  </data>
+  <data name="FLX011_Title" xml:space="preserve">
+    <value>Reducer method should be static</value>
+  </data>
+
+  <data name="FLX012_Description" xml:space="preserve">
+    <value>Reducer methods should be pure functions, best implemented as a static method.</value>
+  </data>
+  <data name="FLX012_Message" xml:space="preserve">
+    <value>Reducer method {0} should be a static pure function.</value>
+  </data>
+  <data name="FLX012_Title" xml:space="preserve">
+    <value>Reducer method should be static</value>
+  </data>
+
 </root>
