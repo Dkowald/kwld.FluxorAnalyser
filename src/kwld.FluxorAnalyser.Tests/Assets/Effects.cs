@@ -34,5 +34,9 @@ internal class Effects
   [EffectMethod(typeof(UpdateName))]
   public Task FLX006_MissingDispatcher()
     => Task.FromResult(1);
+
+  [EffectMethod]
+  public Task FLX007_TooManyArguments(string other, UpdateName action, IDispatcher dispatcher)
+    => Task.CompletedTask;
 }
 
