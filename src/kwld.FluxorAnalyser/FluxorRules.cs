@@ -198,11 +198,16 @@ namespace kwld.FluxorAnalyser
 
       var location = injectsState.Locations[0];
       
+      var args = new object[]
+      {
+        def.ShortName(),
+        isBlazorLayout? MetaNameFluxorLayout : MetaNameFluxorComponent
+      };
+
       ctx.ReportDiagnostic(
         Diagnostic.Create(Flx001RequireInheritFluxorComponent,
-          location,
-          DiagnosticSeverity.Error,
-          null, null));
+          location, 
+          messageArgs: args));
     }
 
     static void CheckDecorateFeatureState(SyntaxNodeAnalysisContext ctx)
@@ -231,15 +236,12 @@ namespace kwld.FluxorAnalyser
           return;
       }
 
-      if (ctx.IsGeneratedCode)
-      {
-        
-      }
-
       var location = node.TypeArgumentList.Arguments[0].GetLocation();
+      var args = new object[] { featureState.ShortName(), MetaNameFeatureState };
+
       ctx.ReportDiagnostic(Diagnostic.Create(
         Flx002DecorateFeatureState, location,
-        messageArgs: featureState.ShortName()));
+        messageArgs: args));
     }
 
     static void CheckFeatureStateHasDefaultCtor(SyntaxNodeAnalysisContext ctx)

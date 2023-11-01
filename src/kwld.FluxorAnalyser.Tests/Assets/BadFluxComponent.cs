@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace kwld.FluxorAnalyser.Tests.Assets;
 
-public class BadFluxComponent : ComponentBase
+public class BadFluxComponent : LayoutComponentBase
 {
   [Inject]
   public SomeService AService { get; set; }

@@ -70,7 +70,7 @@ public class FluxorRulesTest
   }
 
   [TestMethod]
-  public async Task RazorComponentWithMultipleProblems()
+  public async Task FLX001_FLX002_RazorComponentWithMultipleProblems()
   {
     var engine = CreateEngine(
       Files.Razor.BasicComponent_razor_g(),
@@ -82,10 +82,12 @@ public class FluxorRulesTest
 
     var flx001 = new DiagnosticResult(
         FluxorRules.Flx001RequireInheritFluxorComponent)
-        .WithLocation(30, 39);
+        .WithLocation(30, 39)
+        .WithArguments(nameof(BasicComponent), FluxorRules.MetaNameFluxorComponent);
 
     var flx002 = new DiagnosticResult(FluxorRules.Flx002DecorateFeatureState)
-        .WithLocation(30, 26);
+        .WithLocation(30, 26)
+        .WithArguments(nameof(SomeService), FluxorRules.MetaNameFeatureState);
 
     engine.ExpectedDiagnostics.AddRange(new[] { flx001, flx002 });
 
@@ -181,7 +183,7 @@ public class FluxorRulesTest
   }
 
   [TestMethod]
-  public async Task FLX001_FluxComponentWithoutBase()
+  public async Task FLX001_FluxLayoutComponentWithoutBase()
   {
     var engine = CreateEngine(
       Files.Source<BadFluxComponent>(),
@@ -190,7 +192,8 @@ public class FluxorRulesTest
 
     var error = new DiagnosticResult(
         FluxorRules.Flx001RequireInheritFluxorComponent)
-      .WithLocation(12, 28);
+      .WithLocation(12, 28)
+      .WithArguments(nameof(BadFluxComponent), FluxorRules.MetaNameFluxorLayout);
 
     engine.TestState.ExpectedDiagnostics
       .Add(error);
@@ -207,7 +210,8 @@ public class FluxorRulesTest
       Files.Source<SomeService>());
 
     var notFeatureState = new DiagnosticResult(FluxorRules.Flx002DecorateFeatureState)
-      .WithLocation(9, 17);
+      .WithLocation(9, 17)
+      .WithArguments(nameof(SomeService), FluxorRules.MetaNameFeatureState);
 
     engine.TestState.ExpectedDiagnostics.Add(notFeatureState);
 
