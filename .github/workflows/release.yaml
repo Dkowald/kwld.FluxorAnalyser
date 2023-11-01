@@ -86,6 +86,7 @@ jobs:
       run: >
         dotnet pack 
         -c Release 
+        --include-symbols
         -p:ContinuousIntegrationBuild=true 
         -p PackageVersion=${{needs.check.outputs.build_version}}
         -o packages
@@ -107,7 +108,7 @@ jobs:
     
     - name: Setup git
       run: |
-        git config --global user.name "dkowald"
+        git config --global user.name "github_build"
         git config --global user.email "derek@kowald.id.au"
 
     - name: Clone wiki

@@ -7,23 +7,10 @@ Dummy project to include additional repository files
 	</PropertyGroup>
 
   <ItemGroup>
-		<!--<None Remove="*.*" />-->
-    <None Include="./*.*" Exclude="./Repository.csproj"  />
+		<None Include="./*.*" Exclude="./Repository.csproj" />
     <None Include=".github/**" />
     <None Include=".vscode/**" />
-    <None Include="doc/**" />
     <None Include="wiki/**" />
   </ItemGroup>
-
-  <ItemGroup>
-		<None Include="src/.config/**" />
-		<None Include="src/.devcontainer/**" />
-    <None Include="src/.vscode/**" />
-    <None Include="src/cert/**" />
-	</ItemGroup>
 	
-	<ItemGroup>
-		<None Include="src/*.csproj" />
-	</ItemGroup>
-
 </Project>
