@@ -19,7 +19,7 @@ on:
     tags:
       - "v*"
 env:
-  PackTarget: src/kwld.FluxorAnalyser.Package
+  PackTarget: "src/kwld.FluxorAnalyser.Package"
   PackBranches: "main,build,development"
 
 jobs:

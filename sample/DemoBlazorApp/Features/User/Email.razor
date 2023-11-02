@@ -2,9 +2,10 @@
   EMail:
   <input type='text' value='@State.Email' readonly='readonly' />
 </label>
+@inject IState<UserAccountState> UserAccountState
 @code {
-    UserProfileState State => UserProfileState.Value;
+  UserProfileState State => UserProfileState.Value;
 
-    [Inject]
-    public IState<UserProfileState> UserProfileState { get; set; } = default!;
+  [Inject]
+  public IState<UserProfileState> UserProfileState { get; set; } = default!;
 }

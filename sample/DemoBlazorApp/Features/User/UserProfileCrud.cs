@@ -13,9 +13,17 @@ namespace DemoBlazorApp.Features.User
     }
 
     [EffectMethod]
-    public void UpdateEmail(UpdateEmail action)
-    {}
+    public Task UpdateEmail(UpdateEmail _, IDispatcher _2)
+    {
+      return Task.CompletedTask;
+    }
 
+    //Missing dispatcher
+    //Wrong return
+    [EffectMethod]
+    public void UpdateEmail(UpdateEmail action){}
+
+    //wrong argument order.
     [EffectMethod]
     public static Task UpdateEmail2(IDispatcher dispatcher, UpdateEmail action)
     {return Task.CompletedTask;}

@@ -14,7 +14,7 @@ on:
       - development
 
 env:
-  PackTarget: src/kwld.FluxorAnalyser.Package
+  PackTarget: "src/kwld.FluxorAnalyser.Package"
 
 jobs:
   build:
