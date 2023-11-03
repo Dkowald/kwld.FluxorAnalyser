@@ -7,36 +7,36 @@ namespace kwld.FluxorAnalyser.Tests.Assets;
 internal class Effects
 {
   [EffectMethod]
-  public Task OnUpdateName(UpdateName action, IDispatcher dispatcher)
+  public Task OnUpdateName(UpdateName _, IDispatcher _1)
     => Task.CompletedTask;
 
   [EffectMethod(typeof(UpdateName))]
-  public Task OnUpdateName2(IDispatcher dispatcher)
+  public Task OnUpdateName2(IDispatcher _)
     => Task.CompletedTask;
   
   /// <summary>Can be static</summary>
   [EffectMethod(typeof(UpdateName))]
-  public static Task OnUpdateName3(IDispatcher dispatcher)
+  public static Task OnUpdateName3(IDispatcher _)
     => Task.CompletedTask;
 
   [EffectMethod(typeof(UpdateName))]
-  public Task<int> FLX004_WrongReturnType(IDispatcher _) 
+  public Task<int> FLX201_WrongReturnType(IDispatcher _)
     => Task.FromResult(1);
 
   [EffectMethod]
-  public Task FLX005_NoAction(IDisposable disposable) 
+  public Task FLX202_NoAction(IDispatcher _)
     => Task.CompletedTask;
   
   [EffectMethod]
-  public Task FLX007_IncorrectArgumentOrder(IDispatcher dispatcher, UpdateName action)
+  public Task FLX203_IncorrectArgumentOrder(IDispatcher _, UpdateName _1)
     => Task.CompletedTask;
 
   [EffectMethod(typeof(UpdateName))]
-  public Task FLX006_MissingDispatcher()
+  public Task FLX203_MissingDispatcher(UpdateName _)
     => Task.FromResult(1);
 
   [EffectMethod]
-  public Task FLX007_TooManyArguments(string other, UpdateName action, IDispatcher dispatcher)
+  public Task FLX200_TooManyArguments(UpdateName _, string _1, IDispatcher _2)
     => Task.CompletedTask;
 }
 

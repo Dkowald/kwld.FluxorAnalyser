@@ -11,9 +11,7 @@ public static class Files
     var name = $"{typeof(TClass).Name}.cs";
 
     using var rd = Assembly.GetExecutingAssembly()
-      .GetManifestResourceStream(typeof(TClass), name);
-
-    if (rd is null)
+      .GetManifestResourceStream(typeof(TClass), name) ??
       throw new Exception($"Failed load of {name}");
 
     return new StreamReader(rd).ReadToEnd();

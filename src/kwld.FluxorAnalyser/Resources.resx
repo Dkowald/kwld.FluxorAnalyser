@@ -117,127 +117,132 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  
+  <data name="FLX001_Title" xml:space="preserve">
+    <value>Fluxor component inheritance</value>
+  </data>
   <data name="FLX001_Description" xml:space="preserve">
     <value>Blazor component should inherit Fluxor component base</value>
   </data>
   <data name="FLX001_Message" xml:space="preserve">
     <value>Component {0} should inherit {1}</value>
   </data>
-  <data name="FLX001_Title" xml:space="preserve">
-    <value>Fluxor component inheritance</value>
-  </data>
-  <data name="FLX002_Description" xml:space="preserve">
-    <value>Fluxor feature state should have FeatureStateAttribute</value>
-  </data>
-  <data name="FLX002_Message" xml:space="preserve">
-    <value>{0} is used as feature state, should be decorated with {1}</value>
-  </data>
-  <data name="FLX002_Title" xml:space="preserve">
+  
+  <data name="FLX101_Title" xml:space="preserve">
     <value>Feature State should be decorated</value>
   </data>
-  <data name="FLX003_Description" xml:space="preserve">
-    <value>Feature state object should have a default constructor (need not be public).</value>
+  <data name="FLX101_Description" xml:space="preserve">
+    <value>Fluxor feature state should have FeatureStateAttribute</value>
   </data>
-  <data name="FLX003_Message" xml:space="preserve">
-    <value>Feature State '{0}' missing default constructor</value>
+  <data name="FLX101_Message" xml:space="preserve">
+    <value>{0} is used as feature state, should be decorated with {1}</value>
   </data>
-  <data name="FLX003_Title" xml:space="preserve">
+  <data name="FLX102_Title" xml:space="preserve">
     <value>Feature state default constructor</value>
   </data>
-  <data name="FLX004_Description" xml:space="preserve">
-    <value>Effect methods should return Task</value>
+  <data name="FLX102_Description" xml:space="preserve">
+    <value>Feature state object should have a default constructor (need not be public).</value>
   </data>
-  <data name="FLX004_Message" xml:space="preserve">
-    <value>Effect method {0} should return Task</value>
+  <data name="FLX102_Message" xml:space="preserve">
+    <value>Feature State '{0}' missing default constructor</value>
   </data>
-  <data name="FLX004_Title" xml:space="preserve">
+  
+  <data name="FLX200_Title" xml:space="preserve">
+    <value>Effect method signature</value>
+  </data>
+  <data name="FLX200_Description" xml:space="preserve">
+    <value>Effect method should return a Task and take (optional) Action and IDispatcher arguments</value>
+  </data>
+  <data name="FLX200_Message" xml:space="preserve">
+    <value>Effect method {0} incorrect signature</value>
+  </data>
+  <data name="FLX201_Title" xml:space="preserve">
     <value>Effect method return type</value>
   </data>
-  <data name="FLX005_Description" xml:space="preserve">
-    <value>Effect method must either take action as argument, or declare action in the EffectsAttribute constructor.</value>
+  <data name="FLX201_Description" xml:space="preserve">
+    <value>Effect methods should return Task</value>
   </data>
-  <data name="FLX005_Message" xml:space="preserve">
-    <value>Effect method {0} has not defined its action.</value>
+  <data name="FLX201_Message" xml:space="preserve">
+    <value>Effect method {0} should return Task</value>
   </data>
-  <data name="FLX005_Title" xml:space="preserve">
+  <data name="FLX202_Title" xml:space="preserve">
     <value>Effect method missing action</value>
   </data>
-  <data name="FLX006_Description" xml:space="preserve">
-    <value>Effect methods should include a IDispatcher as last argument.</value>
+  <data name="FLX202_Description" xml:space="preserve">
+    <value>Effect method must either take action as argument, or declare action in the EffectsAttribute constructor.</value>
   </data>
-  <data name="FLX006_Message" xml:space="preserve">
-    <value>Effect method {0} last argument must be IDispatcher.</value>
-  </data>
-  <data name="FLX006_Title" xml:space="preserve">
+  <data name="FLX202_Message" xml:space="preserve">
+    <value>Effect method {0} has not defined its action.</value>
+  </data>  
+  <data name="FLX203_Title" xml:space="preserve">
     <value>Effect method last argument should be IDispatcher</value>
   </data>
-  <data name="FLX007_Description" xml:space="preserve">
-    <value>Effect methods should consume action as first parameter</value>
+  <data name="FLX203_Description" xml:space="preserve">
+    <value>Effect methods should include a IDispatcher as last argument.</value>
   </data>
-  <data name="FLX007_Message" xml:space="preserve">
-    <value>Effect method {0} should consume action as first parameter, or declare action in EffectAttribute constructor</value>
+  <data name="FLX203_Message" xml:space="preserve">
+    <value>Effect method {0} last argument must be IDispatcher.</value>
   </data>
-  <data name="FLX007_Title" xml:space="preserve">
+  <data name="FLX204_Title" xml:space="preserve">
     <value>Effect method argument order</value>
   </data>
-
-  <data name="FLX008_Description" xml:space="preserve">
-    <value>Reducer methods must either take a action as a argument, or </value>
+  <data name="FLX204_Description" xml:space="preserve">
+    <value>Effect methods should consume action as first parameter</value>
   </data>
-  <data name="FLX008_Message" xml:space="preserve">
-    <value>Reducer method {0} should consume a action as first argument; or declare the  action type in ReducerMethodAttribute constructor</value>
+  <data name="FLX204_Message" xml:space="preserve">
+    <value>Effect method {0} should consume action as first parameter, or declare action in EffectAttribute constructor</value>
   </data>
-  <data name="FLX008_Title" xml:space="preserve">
-    <value>Reducer method missing action</value>
-  </data>
-
-  <data name="FLX009_Description" xml:space="preserve">
-    <value>Reducer methods must take a feature state argument.</value>
-  </data>
-  <data name="FLX009_Message" xml:space="preserve">
-    <value>Reducer method {0} is missing a feature state parameter.</value>
-  </data>
-  <data name="FLX009_Title" xml:space="preserve">
-    <value>Reducer method missing feature state</value>
-  </data>
-
-  <data name="FLX009_Description" xml:space="preserve">
-    <value>Reducer methods must take a feature state argument.</value>
-  </data>
-  <data name="FLX009_Message" xml:space="preserve">
-    <value>Reducer method {0} is missing a feature state parameter.</value>
-  </data>
-  <data name="FLX009_Title" xml:space="preserve">
-    <value>Reducer method missing feature state</value>
-  </data>
-
-  <data name="FLX010_Description" xml:space="preserve">
-    <value>Reducer methods must have expected signature.</value>
-  </data>
-  <data name="FLX010_Message" xml:space="preserve">
-    <value>Reducer method {0} has wrong signature.</value>
-  </data>
-  <data name="FLX010_Title" xml:space="preserve">
+  
+  <data name="FLX300_Title" xml:space="preserve">
     <value>Reducer method signature</value>
   </data>
-
-  <data name="FLX011_Description" xml:space="preserve">
-    <value>Reducer methods should be pure functions, best implemented as a static method.</value>
+  <data name="FLX300_Description" xml:space="preserve">
+    <value>A Reducer should return updated ferature-state, take feature-state and 
+      (optional) action arguments.</value>
   </data>
-  <data name="FLX011_Message" xml:space="preserve">
-    <value>Reducer method {0} should be a static pure function.</value>
-  </data>
-  <data name="FLX011_Title" xml:space="preserve">
-    <value>Reducer method should be static</value>
+  <data name="FLX300_Message" xml:space="preserve">
+    <value>Reducer method {0} incorrect signature</value>
   </data>
 
-  <data name="FLX012_Description" xml:space="preserve">
+  <data name="FLX301_Title" xml:space="preserve">
+    <value>Reducer method missing action</value>
+  </data>
+  <data name="FLX301_Description" xml:space="preserve">
+    <value>A Reducer should either take a action as the last argument;
+      or declare the action type in ReducerMethodAttribute constrcuctor.</value>
+  </data>
+  <data name="FLX301_Message" xml:space="preserve">
+    <value>Reducer method {0} should consume a action as last argument; 
+      or declare the action type in ReducerMethodAttribute constructor</value>
+  </data>
+  
+  <data name="FLX302_Title" xml:space="preserve">
+    <value>Reducer methods must return a feature-state object.</value>
+  </data>
+    <data name="FLX302_Description" xml:space="preserve">
+    <value>Reducer methods must return a feature-state object.</value>
+  </data>
+  <data name="FLX302_Message" xml:space="preserve">
+    <value>Reducer method {0} is not returning a feature-state object.</value>
+  </data>
+  
+  <data name="FLX303_Title" xml:space="preserve">
+    <value>Reducer method missing feature-state argument.</value>
+  </data>
+  <data name="FLX303_Description" xml:space="preserve">
+    <value>Reducer method must must consume the current feature-state as first argument.</value>
+  </data>
+  <data name="FLX303_Message" xml:space="preserve">
+    <value>Reducer method {0} should have {1} as first argument.</value>
+  </data>
+  
+  <data name="FLX304_Description" xml:space="preserve">
     <value>Reducer methods should be pure functions, best implemented as a static method.</value>
   </data>
-  <data name="FLX012_Message" xml:space="preserve">
+  <data name="FLX304_Message" xml:space="preserve">
     <value>Reducer method {0} should be a static pure function.</value>
   </data>
-  <data name="FLX012_Title" xml:space="preserve">
+  <data name="FLX304_Title" xml:space="preserve">
     <value>Reducer method should be static</value>
   </data>
 

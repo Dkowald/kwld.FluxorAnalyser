@@ -4,3 +4,5 @@ bin/
 
 TestResults/
 packages/
+
+src/kwld.FluxorAnalyser.Tests/generated/

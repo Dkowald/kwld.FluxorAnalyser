@@ -6,10 +6,6 @@ namespace kwld.FluxorAnalyser.Util
 
   internal static class NamedSymbolExtensions
   {
-    private static readonly SymbolDisplayFormat GenericTypeFormat = new SymbolDisplayFormat(
-        typeQualificationStyle: SymbolDisplayTypeQualificationStyle.NameAndContainingTypesAndNamespaces,
-        genericsOptions: SymbolDisplayGenericsOptions.None);
-
     /// <summary>
     /// Create the standard metadata name for the <paramref name="symbol"/>.
     /// If <paramref name="symbol"/> is not a <see cref="INamespaceSymbol"/> or

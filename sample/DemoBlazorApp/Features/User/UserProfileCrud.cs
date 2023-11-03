@@ -18,14 +18,23 @@ namespace DemoBlazorApp.Features.User
       return Task.CompletedTask;
     }
 
-    //Missing dispatcher
     //Wrong return
+    [EffectMethod(typeof(UpdateEmail))]
+    public void UpdateEmail1(IDispatcher _) { }
+
+    //Missing dispatcher
     [EffectMethod]
-    public void UpdateEmail(UpdateEmail action){}
+    public Task UpdateEmail2(UpdateEmail action) 
+      => Task.CompletedTask;
+
+    //Missing action
+    [EffectMethod]
+    public Task UpdateEmail3(IDispatcher _) 
+      => Task.CompletedTask;
 
     //wrong argument order.
     [EffectMethod]
-    public static Task UpdateEmail2(IDispatcher dispatcher, UpdateEmail action)
+    public static Task UpdateEmail4(IDispatcher dispatcher, UpdateEmail action)
     {return Task.CompletedTask;}
 
   }

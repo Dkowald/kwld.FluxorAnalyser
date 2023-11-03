@@ -90,270 +90,327 @@ namespace kwld.FluxorAnalyser {
         /// <summary>
         ///   Looks up a localized string similar to Fluxor feature state should have FeatureStateAttribute.
         /// </summary>
-        internal static string FLX002_Description {
+        internal static string FLX101_Description {
             get {
-                return ResourceManager.GetString("FLX002_Description", resourceCulture);
+                return ResourceManager.GetString("FLX101_Description", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to {0} is used as feature state, should be decorated with {1}.
         /// </summary>
-        internal static string FLX002_Message {
+        internal static string FLX101_Message {
             get {
-                return ResourceManager.GetString("FLX002_Message", resourceCulture);
+                return ResourceManager.GetString("FLX101_Message", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Feature State should be decorated.
         /// </summary>
-        internal static string FLX002_Title {
+        internal static string FLX101_Title {
             get {
-                return ResourceManager.GetString("FLX002_Title", resourceCulture);
+                return ResourceManager.GetString("FLX101_Title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Feature state object should have a default constructor (need not be public)..
         /// </summary>
-        internal static string FLX003_Description {
+        internal static string FLX102_Description {
             get {
-                return ResourceManager.GetString("FLX003_Description", resourceCulture);
+                return ResourceManager.GetString("FLX102_Description", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Feature State &apos;{0}&apos; missing default constructor.
         /// </summary>
-        internal static string FLX003_Message {
+        internal static string FLX102_Message {
             get {
-                return ResourceManager.GetString("FLX003_Message", resourceCulture);
+                return ResourceManager.GetString("FLX102_Message", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Feature state default constructor.
         /// </summary>
-        internal static string FLX003_Title {
+        internal static string FLX102_Title {
             get {
-                return ResourceManager.GetString("FLX003_Title", resourceCulture);
+                return ResourceManager.GetString("FLX102_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Effect method should return a Task and take (optional) Action and IDispatcher arguments.
+        /// </summary>
+        internal static string FLX200_Description {
+            get {
+                return ResourceManager.GetString("FLX200_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Effect method {0} incorrect signature.
+        /// </summary>
+        internal static string FLX200_Message {
+            get {
+                return ResourceManager.GetString("FLX200_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Effect method signature.
+        /// </summary>
+        internal static string FLX200_Title {
+            get {
+                return ResourceManager.GetString("FLX200_Title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Effect methods should return Task.
         /// </summary>
-        internal static string FLX004_Description {
+        internal static string FLX201_Description {
             get {
-                return ResourceManager.GetString("FLX004_Description", resourceCulture);
+                return ResourceManager.GetString("FLX201_Description", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Effect method {0} should return Task.
         /// </summary>
-        internal static string FLX004_Message {
+        internal static string FLX201_Message {
             get {
-                return ResourceManager.GetString("FLX004_Message", resourceCulture);
+                return ResourceManager.GetString("FLX201_Message", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Effect method return type.
         /// </summary>
-        internal static string FLX004_Title {
+        internal static string FLX201_Title {
             get {
-                return ResourceManager.GetString("FLX004_Title", resourceCulture);
+                return ResourceManager.GetString("FLX201_Title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Effect method must either take action as argument, or declare action in the EffectsAttribute constructor..
         /// </summary>
-        internal static string FLX005_Description {
+        internal static string FLX202_Description {
             get {
-                return ResourceManager.GetString("FLX005_Description", resourceCulture);
+                return ResourceManager.GetString("FLX202_Description", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Effect method {0} has not defined its action..
         /// </summary>
-        internal static string FLX005_Message {
+        internal static string FLX202_Message {
             get {
-                return ResourceManager.GetString("FLX005_Message", resourceCulture);
+                return ResourceManager.GetString("FLX202_Message", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Effect method missing action.
         /// </summary>
-        internal static string FLX005_Title {
+        internal static string FLX202_Title {
             get {
-                return ResourceManager.GetString("FLX005_Title", resourceCulture);
+                return ResourceManager.GetString("FLX202_Title", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Effect methods should include a IDispatcher argument..
+        ///   Looks up a localized string similar to Effect methods should include a IDispatcher as last argument..
         /// </summary>
-        internal static string FLX006_Description {
+        internal static string FLX203_Description {
             get {
-                return ResourceManager.GetString("FLX006_Description", resourceCulture);
+                return ResourceManager.GetString("FLX203_Description", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Effect method {0} missing IDispatcher argument..
+        ///   Looks up a localized string similar to Effect method {0} last argument must be IDispatcher..
         /// </summary>
-        internal static string FLX006_Message {
+        internal static string FLX203_Message {
             get {
-                return ResourceManager.GetString("FLX006_Message", resourceCulture);
+                return ResourceManager.GetString("FLX203_Message", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Effect method should use IDispatcher.
+        ///   Looks up a localized string similar to Effect method last argument should be IDispatcher.
         /// </summary>
-        internal static string FLX006_Title {
+        internal static string FLX203_Title {
             get {
-                return ResourceManager.GetString("FLX006_Title", resourceCulture);
+                return ResourceManager.GetString("FLX203_Title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Effect methods should consume action as first parameter.
         /// </summary>
-        internal static string FLX007_Description {
+        internal static string FLX204_Description {
             get {
-                return ResourceManager.GetString("FLX007_Description", resourceCulture);
+                return ResourceManager.GetString("FLX204_Description", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Effect method {0} should consume action as first parameter, or declare action in EffectAttribute constructor.
         /// </summary>
-        internal static string FLX007_Message {
+        internal static string FLX204_Message {
             get {
-                return ResourceManager.GetString("FLX007_Message", resourceCulture);
+                return ResourceManager.GetString("FLX204_Message", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Effect method argument order.
         /// </summary>
-        internal static string FLX007_Title {
+        internal static string FLX204_Title {
             get {
-                return ResourceManager.GetString("FLX007_Title", resourceCulture);
+                return ResourceManager.GetString("FLX204_Title", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reducer methods must either take a action as a argument, or .
+        ///   Looks up a localized string similar to A Reducer should return updated ferature-state, take feature-state and 
+        ///      (optional) action arguments..
         /// </summary>
-        internal static string FLX008_Description {
+        internal static string FLX300_Description {
             get {
-                return ResourceManager.GetString("FLX008_Description", resourceCulture);
+                return ResourceManager.GetString("FLX300_Description", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reducer method {0} should consume a action as first argument; or declare the  action type in ReducerMethodAttribute constructor.
+        ///   Looks up a localized string similar to Reducer method {0} incorrect signature.
         /// </summary>
-        internal static string FLX008_Message {
+        internal static string FLX300_Message {
             get {
-                return ResourceManager.GetString("FLX008_Message", resourceCulture);
+                return ResourceManager.GetString("FLX300_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reducer method signature.
+        /// </summary>
+        internal static string FLX300_Title {
+            get {
+                return ResourceManager.GetString("FLX300_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A Reducer should either take a action as the last argument;
+        ///      or declare the action type in ReducerMethodAttribute constrcuctor..
+        /// </summary>
+        internal static string FLX301_Description {
+            get {
+                return ResourceManager.GetString("FLX301_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reducer method {0} should consume a action as last argument; 
+        ///      or declare the action type in ReducerMethodAttribute constructor.
+        /// </summary>
+        internal static string FLX301_Message {
+            get {
+                return ResourceManager.GetString("FLX301_Message", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Reducer method missing action.
         /// </summary>
-        internal static string FLX008_Title {
+        internal static string FLX301_Title {
             get {
-                return ResourceManager.GetString("FLX008_Title", resourceCulture);
+                return ResourceManager.GetString("FLX301_Title", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reducer methods must take a feature state argument..
+        ///   Looks up a localized string similar to Reducer methods must return a feature-state object..
         /// </summary>
-        internal static string FLX009_Description {
+        internal static string FLX302_Description {
             get {
-                return ResourceManager.GetString("FLX009_Description", resourceCulture);
+                return ResourceManager.GetString("FLX302_Description", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reducer method {0} is missing a feature state parameter..
+        ///   Looks up a localized string similar to Reducer method {0} is not returning a feature-state object..
         /// </summary>
-        internal static string FLX009_Message {
+        internal static string FLX302_Message {
             get {
-                return ResourceManager.GetString("FLX009_Message", resourceCulture);
+                return ResourceManager.GetString("FLX302_Message", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reducer method missing feature state.
+        ///   Looks up a localized string similar to Reducer methods must return a feature-state object..
         /// </summary>
-        internal static string FLX009_Title {
+        internal static string FLX302_Title {
             get {
-                return ResourceManager.GetString("FLX009_Title", resourceCulture);
+                return ResourceManager.GetString("FLX302_Title", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reducer methods must take a feature state argument..
+        ///   Looks up a localized string similar to Reducer method must must consume the current feature-state as first argument..
         /// </summary>
-        internal static string FLX010_Description {
+        internal static string FLX303_Description {
             get {
-                return ResourceManager.GetString("FLX010_Description", resourceCulture);
+                return ResourceManager.GetString("FLX303_Description", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reducer method {0} is missing a feature state parameter..
+        ///   Looks up a localized string similar to Reducer method {0} should have {1} as first argument..
         /// </summary>
-        internal static string FLX010_Message {
+        internal static string FLX303_Message {
             get {
-                return ResourceManager.GetString("FLX010_Message", resourceCulture);
+                return ResourceManager.GetString("FLX303_Message", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reducer method missing feature state.
+        ///   Looks up a localized string similar to Reducer method missing feature-state argument..
         /// </summary>
-        internal static string FLX010_Title {
+        internal static string FLX303_Title {
             get {
-                return ResourceManager.GetString("FLX010_Title", resourceCulture);
+                return ResourceManager.GetString("FLX303_Title", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Reducer methods should be pure functions, best implemented as a static method..
         /// </summary>
-        internal static string FLX011_Description {
+        internal static string FLX304_Description {
             get {
-                return ResourceManager.GetString("FLX011_Description", resourceCulture);
+                return ResourceManager.GetString("FLX304_Description", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Reducer method {0} should be a static pure function..
         /// </summary>
-        internal static string FLX011_Message {
+        internal static string FLX304_Message {
             get {
-                return ResourceManager.GetString("FLX011_Message", resourceCulture);
+                return ResourceManager.GetString("FLX304_Message", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Reducer method should be static.
         /// </summary>
-        internal static string FLX011_Title {
+        internal static string FLX304_Title {
             get {
-                return ResourceManager.GetString("FLX011_Title", resourceCulture);
+                return ResourceManager.GetString("FLX304_Title", resourceCulture);
             }
         }
     }

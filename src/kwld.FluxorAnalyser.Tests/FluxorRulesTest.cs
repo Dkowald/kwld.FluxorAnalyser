@@ -8,19 +8,11 @@ using kwld.FluxorAnalyser.Tests.Assets;
 
 using Microsoft.AspNetCore.Components;
 using Microsoft.CodeAnalysis.Testing;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using Verifier = kwld.FluxorAnalyser.Tests.Verifiers.CSharpAnalyzerVerifier<kwld.FluxorAnalyser.FluxorRules>;
 
 namespace kwld.FluxorAnalyser.Tests;
-
-public class FluxPlay
-{
-  [ReducerMethod]
-  public static SomeOtherState FLX010_StateMismatch(SomeState state, UpdateName action)
-    => new("X");
-}
 
 [TestClass]
 public class FluxorRulesTest
@@ -53,24 +45,7 @@ public class FluxorRulesTest
   }
 
   [TestMethod]
-  public async Task FluxPlay()
-  {
-    var cont = new ServiceCollection();
-    cont.AddFluxor(cfg =>
-    {
-      cfg.ScanTypes(typeof(FluxPlay));
-    });
-
-    var svc = cont.BuildServiceProvider();
-
-    await svc.GetRequiredService<IStore>().InitializeAsync();
-
-    svc.GetRequiredService<IDispatcher>()
-      .Dispatch(new SomeState("X"));
-  }
-
-  [TestMethod]
-  public async Task FLX001_FLX002_RazorComponentWithMultipleProblems()
+  public async Task FLX001_FLX101_RazorComponentWithMultipleProblems()
   {
     var engine = CreateEngine(
       Files.Razor.BasicComponent_razor_g(),
@@ -85,7 +60,7 @@ public class FluxorRulesTest
         .WithLocation(30, 39)
         .WithArguments(nameof(BasicComponent), FluxorRules.MetaNameFluxorComponent);
 
-    var flx002 = new DiagnosticResult(FluxorRules.Flx002DecorateFeatureState)
+    var flx002 = new DiagnosticResult(FluxorRules.Flx101DecorateFeatureState)
         .WithLocation(30, 26)
         .WithArguments(nameof(SomeService), FluxorRules.MetaNameFeatureState);
 
@@ -95,7 +70,7 @@ public class FluxorRulesTest
   }
 
   [TestMethod]
-  public async Task FLX08_FLX011_ReducerSignature()
+  public async Task FLX30X_ReducerSignature()
   {
     var engine = CreateEngine(
       Files.Source<Reducers>(),
@@ -105,25 +80,31 @@ public class FluxorRulesTest
       Files.Source<SomeService>()
     );
 
-    var warnNonStatic = new DiagnosticResult(FluxorRules.Flx011ReducerShouldBeStatic)
+    var warnNonStatic = new DiagnosticResult(FluxorRules.Flx304ReducerShouldBeStatic)
       .WithLocation(15,3)
-      .WithArguments("Reducers.FLX011_NonStaticReduce(SomeState)");
+      .WithArguments("Reducers.FLX304_NonStaticReduce(SomeState)");
 
-    var stateMisMatch = new DiagnosticResult(FluxorRules.Flx010ReducerInvalidSignature)
+    var stateMisMatch = new DiagnosticResult(FluxorRules.Flx303ReducerFirstArgumentIsState)
       .WithLocation(19, 3)
-      .WithArguments("Reducers.FLX010_StateMismatch(SomeState, UpdateName)");
+      .WithArguments(
+        "Reducers.FLX303_StateMismatch(SomeState, UpdateName)",
+        nameof(SomeMoreState));
 
-    var noAction = new DiagnosticResult(FluxorRules.Flx008ReducerMissingAction)
+    var noAction = new DiagnosticResult(FluxorRules.Flx301ReducerMissingAction)
       .WithLocation(23, 3)
-      .WithArguments("Reducers.FLX008_NoAction(SomeState)");
+      .WithArguments("Reducers.FLX301_NoAction(SomeState)");
 
-    var noState = new DiagnosticResult(FluxorRules.Flx009ReducerMissingState)
-      .WithLocation(26, 3)
-      .WithArguments("Reducers.FLX009_NoState()");
+    var noState = new DiagnosticResult(FluxorRules.Flx303ReducerFirstArgumentIsState)
+      .WithLocation(27, 3)
+      .WithArguments("Reducers.FLX303_NoState(UpdateName)", nameof(SomeState));
 
-    var notFeatureState = new DiagnosticResult(FluxorRules.Flx009ReducerMissingState)
-      .WithLocation(29, 3)
-      .WithArguments("Reducers.FLX009_NotFeatureState(SomeService, UpdateName)");
+    var notFeatureState = new DiagnosticResult(FluxorRules.Flx302ReducerMissingState)
+      .WithLocation(31, 3)
+      .WithArguments("Reducers.FLX302_NotFeatureState(SomeService, UpdateName)");
+
+    var tooManyArguments = new DiagnosticResult(FluxorRules.Flx300ReducerMethodSignature)
+      .WithLocation(35, 3)
+      .WithArguments("Reducers.FLX300_WrongNumberOFArguments(SomeService, string, UpdateName)");
 
     engine.TestState.ExpectedDiagnostics.AddRange(new []
     {
@@ -131,14 +112,15 @@ public class FluxorRulesTest
       stateMisMatch,
       noAction,
       noState,
-      notFeatureState
+      notFeatureState,
+      tooManyArguments
     });
 
     await engine.RunAsync();
   }
 
   [TestMethod]
-  public async Task FLX004_FLX007_EffectSignature()
+  public async Task FLX20X_EffectSignature()
   {
     var engine = CreateEngine(
       Files.Source<Effects>(),
@@ -146,29 +128,29 @@ public class FluxorRulesTest
     );
 
     var errNonAsyncEffect = new DiagnosticResult(
-        FluxorRules.Flx004EffectMethodReturn)
+        FluxorRules.Flx201EffectMethodReturn)
       .WithLocation(22, 3)
-      .WithArguments("Effects.FLX004_WrongReturnType(IDispatcher)");
+      .WithArguments("Effects.FLX201_WrongReturnType(IDispatcher)");
 
     var errNoAction = new DiagnosticResult(
-        FluxorRules.Flx005EffectMethodMissingAction)
+        FluxorRules.Flx202EffectMethodMissingAction)
       .WithLocation(26, 3)
-      .WithArguments("Effects.FLX005_NoAction(IDisposable)");
+      .WithArguments("Effects.FLX202_NoAction(IDispatcher)");
 
     var errArgumentOrder = new DiagnosticResult(
-        FluxorRules.Flx006EffectMethodMissingDispatcher)
+        FluxorRules.Flx203EffectMethodMissingDispatcher)
       .WithLocation(30, 3)
-      .WithArguments("Effects.FLX007_IncorrectArgumentOrder(IDispatcher, UpdateName)");
+      .WithArguments("Effects.FLX203_IncorrectArgumentOrder(IDispatcher, UpdateName)");
 
     var errConsumeDispatcher = new DiagnosticResult(
-        FluxorRules.Flx006EffectMethodMissingDispatcher)
+        FluxorRules.Flx203EffectMethodMissingDispatcher)
       .WithLocation(34, 3)
-      .WithArguments("Effects.FLX006_MissingDispatcher()");
+      .WithArguments("Effects.FLX203_MissingDispatcher(UpdateName)");
 
     var errToManyArgs = new DiagnosticResult(
-        FluxorRules.Flx007EffectMethodSignature)
+        FluxorRules.Flx200EffectMethodSignature)
       .WithLocation(38, 3)
-      .WithArguments("Effects.FLX007_TooManyArguments(string, UpdateName, IDispatcher)");
+      .WithArguments("Effects.FLX200_TooManyArguments(UpdateName, string, IDispatcher)");
 
     engine.ExpectedDiagnostics.AddRange(new[]
     {
@@ -202,14 +184,14 @@ public class FluxorRulesTest
   }
 
   [TestMethod]
-  public async Task FLX002_StateShouldBeDecorated()
+  public async Task FLX101_StateShouldBeDecorated()
   {
     var engine = CreateEngine(
       Files.Source<StateDecoration>(),
       Files.Source<SomeState>(),
       Files.Source<SomeService>());
 
-    var notFeatureState = new DiagnosticResult(FluxorRules.Flx002DecorateFeatureState)
+    var notFeatureState = new DiagnosticResult(FluxorRules.Flx101DecorateFeatureState)
       .WithLocation(9, 17)
       .WithArguments(nameof(SomeService), FluxorRules.MetaNameFeatureState);
 
@@ -219,24 +201,14 @@ public class FluxorRulesTest
   }
 
   [TestMethod]
-  public async Task FLX003_StateWithDefaultCtor()
+  public async Task FLX102_StateWithoutCtor()
   {
     var engine = CreateEngine(
-      Files.Source<SomeState>(),
-      Files.Source<SomeService>()
+      Files.Source<SomeOtherState>(),
+      Files.Source<SomeState>()
     );
 
-    await engine.RunAsync();
-  }
-
-  [TestMethod]
-  public async Task FLX003_StateWithoutCtor()
-  {
-    var engine = CreateEngine(
-      Files.Source<SomeOtherState>()
-    );
-
-    var error = new DiagnosticResult(FluxorRules.Flx003FeatureStateDefaultCtor)
+    var error = new DiagnosticResult(FluxorRules.Flx102FeatureStateDefaultCtor)
       .WithLocation(5, 2)
       .WithArguments("SomeOtherState");
 

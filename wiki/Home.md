@@ -5,11 +5,10 @@ with attributes.
 
 - [FLX001](./Rules/FLX001.md)
   > Blazor component should inherit FluxComponent
-- [FLX002](./Rules/FLX002.md)
-  >Feature state should have FeatureStateAttribute
-- [FLX003](./Rules/FLX003.md)
-  > Default constructor for FeatureState
-- [FLX004](./Rules/FLX004.md) [FLX005](./Rules/FLX005.md) [FLX006](./Rules/FLX006.md) [FLX007](./Rules/FLX007.md)
+- [FLX101](./Rules/FLX101.md) [FLX102](./Rules/FLX102.md)
+  >Feature state should have FeatureStateAttribute,  
+  >and a default constructor
+- [FLX200](./Rules/FLX200.md) [FLX201](./Rules/FLX201.md) [FLX202](./Rules/FLX202.md) [FLX203](./Rules/FLX203.md)
   >  Method signature for Effect methods
-- [FLX008](./Rules/FLX008.md) [FLX009](./Rules/FLX009.md) [FLX010](./Rules/FLX010.md) [FLX011](./Rules/FLX011.md)
+- [FLX300](./Rules/FLX300.md) [FLX301](./Rules/FLX301.md) [FLX302](./Rules/FLX302.md) [FLX303](./Rules/FLX303.md) [FLX304](./Rules/FLX304.md)
   >  Method signature for Reducer methods

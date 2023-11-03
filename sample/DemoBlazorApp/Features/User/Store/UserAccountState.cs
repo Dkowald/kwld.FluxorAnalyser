@@ -1,3 +1,12 @@
-﻿namespace DemoBlazorApp.Features.User.Store;
+﻿using DemoBlazorApp.Features.User.Store.Actions;
+using Fluxor;
 
-public record UserAccountState(bool IsGuest, bool EmailIsVerified);
+namespace DemoBlazorApp.Features.User.Store;
+
+public record UserAccountState(bool IsGuest, bool EmailIsVerified)
+{
+
+  [ReducerMethod(typeof(EmailConfirmationReceived))]
+  public static UserAccountState EmailConfirmationReceived(UserAccountState state)
+    => state with {EmailIsVerified = true};
+}
