@@ -1,0 +1,8 @@
+obj/
+bin/
+.vs/
+
+TestResults/
+packages/
+
+src/kwld.FluxorAnalyser.Tests/generated/

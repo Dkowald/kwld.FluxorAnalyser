@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  
+  <data name="FLX001_Title" xml:space="preserve">
+    <value>Fluxor component inheritance</value>
+  </data>
+  <data name="FLX001_Description" xml:space="preserve">
+    <value>Blazor component should inherit Fluxor component base</value>
+  </data>
+  <data name="FLX001_Message" xml:space="preserve">
+    <value>Component {0} should inherit {1}</value>
+  </data>
+  
+  <data name="FLX101_Title" xml:space="preserve">
+    <value>Feature State should be decorated</value>
+  </data>
+  <data name="FLX101_Description" xml:space="preserve">
+    <value>Fluxor feature state should have FeatureStateAttribute</value>
+  </data>
+  <data name="FLX101_Message" xml:space="preserve">
+    <value>{0} is used as feature state, should be decorated with {1}</value>
+  </data>
+  <data name="FLX102_Title" xml:space="preserve">
+    <value>Feature state default constructor</value>
+  </data>
+  <data name="FLX102_Description" xml:space="preserve">
+    <value>Feature state object should have a default constructor (need not be public).</value>
+  </data>
+  <data name="FLX102_Message" xml:space="preserve">
+    <value>Feature State '{0}' missing default constructor</value>
+  </data>
+  
+  <data name="FLX200_Title" xml:space="preserve">
+    <value>Effect method signature</value>
+  </data>
+  <data name="FLX200_Description" xml:space="preserve">
+    <value>Effect method should return a Task and take (optional) Action and IDispatcher arguments</value>
+  </data>
+  <data name="FLX200_Message" xml:space="preserve">
+    <value>Effect method {0} incorrect signature</value>
+  </data>
+  <data name="FLX201_Title" xml:space="preserve">
+    <value>Effect method return type</value>
+  </data>
+  <data name="FLX201_Description" xml:space="preserve">
+    <value>Effect methods should return Task</value>
+  </data>
+  <data name="FLX201_Message" xml:space="preserve">
+    <value>Effect method {0} should return Task</value>
+  </data>
+  <data name="FLX202_Title" xml:space="preserve">
+    <value>Effect method missing action</value>
+  </data>
+  <data name="FLX202_Description" xml:space="preserve">
+    <value>Effect method must either take action as argument, or declare action in the EffectsAttribute constructor.</value>
+  </data>
+  <data name="FLX202_Message" xml:space="preserve">
+    <value>Effect method {0} has not defined its action.</value>
+  </data>  
+  <data name="FLX203_Title" xml:space="preserve">
+    <value>Effect method last argument should be IDispatcher</value>
+  </data>
+  <data name="FLX203_Description" xml:space="preserve">
+    <value>Effect methods should include a IDispatcher as last argument.</value>
+  </data>
+  <data name="FLX203_Message" xml:space="preserve">
+    <value>Effect method {0} last argument must be IDispatcher.</value>
+  </data>
+  <data name="FLX204_Title" xml:space="preserve">
+    <value>Effect method argument order</value>
+  </data>
+  <data name="FLX204_Description" xml:space="preserve">
+    <value>Effect methods should consume action as first parameter</value>
+  </data>
+  <data name="FLX204_Message" xml:space="preserve">
+    <value>Effect method {0} should consume action as first parameter, or declare action in EffectAttribute constructor</value>
+  </data>
+  
+  <data name="FLX300_Title" xml:space="preserve">
+    <value>Reducer method signature</value>
+  </data>
+  <data name="FLX300_Description" xml:space="preserve">
+    <value>A Reducer should return updated ferature-state, take feature-state and 
+      (optional) action arguments.</value>
+  </data>
+  <data name="FLX300_Message" xml:space="preserve">
+    <value>Reducer method {0} incorrect signature</value>
+  </data>
+
+  <data name="FLX301_Title" xml:space="preserve">
+    <value>Reducer method missing action</value>
+  </data>
+  <data name="FLX301_Description" xml:space="preserve">
+    <value>A Reducer should either take a action as the last argument;
+      or declare the action type in ReducerMethodAttribute constrcuctor.</value>
+  </data>
+  <data name="FLX301_Message" xml:space="preserve">
+    <value>Reducer method {0} should consume a action as last argument; 
+      or declare the action type in ReducerMethodAttribute constructor</value>
+  </data>
+  
+  <data name="FLX302_Title" xml:space="preserve">
+    <value>Reducer methods must return a feature-state object.</value>
+  </data>
+    <data name="FLX302_Description" xml:space="preserve">
+    <value>Reducer methods must return a feature-state object.</value>
+  </data>
+  <data name="FLX302_Message" xml:space="preserve">
+    <value>Reducer method {0} is not returning a feature-state object.</value>
+  </data>
+  
+  <data name="FLX303_Title" xml:space="preserve">
+    <value>Reducer method missing feature-state argument.</value>
+  </data>
+  <data name="FLX303_Description" xml:space="preserve">
+    <value>Reducer method must must consume the current feature-state as first argument.</value>
+  </data>
+  <data name="FLX303_Message" xml:space="preserve">
+    <value>Reducer method {0} should have {1} as first argument.</value>
+  </data>
+  
+  <data name="FLX304_Description" xml:space="preserve">
+    <value>Reducer methods should be pure functions, best implemented as a static method.</value>
+  </data>
+  <data name="FLX304_Message" xml:space="preserve">
+    <value>Reducer method {0} should be a static pure function.</value>
+  </data>
+  <data name="FLX304_Title" xml:space="preserve">
+    <value>Reducer method should be static</value>
+  </data>
+
+</root>

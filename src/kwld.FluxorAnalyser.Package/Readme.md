@@ -1,7 +1,11 @@
-A C# analyser for use with [Fluxor](https://github.com/mrpmorris/Fluxor)
+﻿A C# analyser for use with [Fluxor](https://github.com/mrpmorris/Fluxor)
 
-Usage: 
-Install the analyser package
+Includes:
+- Check method signatures for Effects
+- Check method signatures for Reducers
+- Check Blazor component inherits Fluxor base.
+- Check FeatureStateAttribute used.
+- Other 
 
 See [wiki](https://github.com/Dkowald/kwld.FluxorAnalyser/wiki)
 

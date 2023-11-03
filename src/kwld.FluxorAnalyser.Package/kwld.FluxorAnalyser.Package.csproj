@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IncludeSymbols>true</IncludeSymbols>
+    <PackageOutputPath>../../packages</PackageOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>kwld.FluxorAnalyser</PackageId>
+    <PackageVersion>9999.0.0.0</PackageVersion>
+    <Authors>Derek Kowald</Authors>
+    <Product>Kwld Fluxor Analyser</Product>
+    <Title>Kwld Fluxor Analyser</Title>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/Dkowald/kwld.FluxorAnalyser</RepositoryUrl>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>Readme.md</PackageReadmeFile>
+    <Copyright>Copyright (c) Derek Kowald 2023.</Copyright>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Description>C# Code analyser for Fluxor</Description>
+    <PackageReleaseNotes>
+      Initial rules for use with Fluxor
+    </PackageReleaseNotes>
+    <PackageTags>Analyzers;CSharp;Fluxor;Blazor;Flux</PackageTags>
+    <DevelopmentDependency>true</DevelopmentDependency>
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);_AddAnalyzersToOutput</TargetsForTfmSpecificContentInPackage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\kwld.FluxorAnalyser\kwld.FluxorAnalyser.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Readme.md" Pack="true" PackagePath="" />
+    <Content Include="icon.png" Pack="true" PackagePath="\" />
+    <None Include="icon.svg" Pack="false" />
+    <None Update="tools\*.ps1" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <Target Name="_AddAnalyzersToOutput">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include="$(OutputPath)\kwld.FluxorAnalyser.dll" PackagePath="analyzers/dotnet/cs" />
+    </ItemGroup>
+  </Target>
+
+  <Target Name="AfterPack" AfterTargets="Pack">
+    <!--reset local falback cache (if any)-->
+    <RemoveDir Directories="$(MSBuildProjectDirectory)/../../packages/$(PackageId)/" />
+  </Target>
+
+</Project>
