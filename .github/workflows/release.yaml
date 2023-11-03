@@ -21,7 +21,9 @@ on:
 env:
   PackTarget: "src/kwld.FluxorAnalyser.Package"
   PackBranches: "main,build,development"
-
+defaults:
+  run: 
+    shell: pwsh
 jobs:
   check:
     name: 'check is valid branch'
@@ -76,6 +78,13 @@ jobs:
       with:
         dotnet-version: |
           7.0.x
+
+    - name: create packages folder
+      run: |
+        if(!(Test-path -Path packages)) {
+          New-Item packages -ItemType Directory
+        }
+
     - name: Restore dependencies
       run: dotnet restore --locked-mode src/
 

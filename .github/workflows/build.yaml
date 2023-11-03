@@ -15,7 +15,9 @@ on:
 
 env:
   PackTarget: "src/kwld.FluxorAnalyser.Package"
-
+defaults:
+  run: 
+    shell: pwsh
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,6 +30,12 @@ jobs:
       with:
         dotnet-version: |
           7.0.x
+
+    - name: create packages folder
+      run: |
+        if(!(Test-path -Path packages)) {
+          New-Item packages -ItemType Directory
+        }
 
     - uses: actions/cache@v3
       with:
