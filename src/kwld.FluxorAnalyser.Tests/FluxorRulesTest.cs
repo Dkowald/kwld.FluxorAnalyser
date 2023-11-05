@@ -17,7 +17,7 @@ namespace kwld.FluxorAnalyser.Tests;
 [TestClass]
 public class FluxorRulesTest
 {
-  private Verifier.Test CreateEngine(params string[] testCode)
+  private static Verifier.Test CreateEngine(params string[] testCode)
   {
     var engine = new Verifier.Test
     {
@@ -52,19 +52,30 @@ public class FluxorRulesTest
       Files.Source<SomeService>(),
       Files.Source<SomeState>());
 
+    var razorFilePath = @"C:\Source\kwld.FluxorAnalyser\src\kwld.FluxorAnalyser.Tests\Assets\BasicComponent.razor";
     engine.TestState.AdditionalFiles.Add(
-      ("BasicComponent.razor", Files.Razor.BasicComponent_razor()));
+      (razorFilePath, Files.Razor.BasicComponent_razor()));
 
     var flx001 = new DiagnosticResult(
         FluxorRules.Flx001RequireInheritFluxorComponent)
-        .WithLocation(30, 39)
+        .WithLocation(30, 41)
         .WithArguments(nameof(BasicComponent), FluxorRules.MetaNameFluxorComponent);
 
     var flx002 = new DiagnosticResult(FluxorRules.Flx101DecorateFeatureState)
-        .WithLocation(30, 26)
+        .WithLocation(30, 28)
+        //.WithDefaultPath(razorFilePath)
         .WithArguments(nameof(SomeService), FluxorRules.MetaNameFeatureState);
 
     engine.ExpectedDiagnostics.AddRange(new[] { flx001, flx002 });
+
+    engine.DiagnosticVerifier = (actual, expected, verify) =>
+    {
+      //check mappings worked.
+      var mappedLocation = actual.Location.GetMappedLineSpan();
+
+      verify.True(mappedLocation.Path.Contains(razorFilePath),
+        "Diagnostic should map to Blazor file");
+    };
 
     await engine.RunAsync();
   }
@@ -129,27 +140,27 @@ public class FluxorRulesTest
 
     var errNonAsyncEffect = new DiagnosticResult(
         FluxorRules.Flx201EffectMethodReturn)
-      .WithLocation(22, 3)
+      .WithLocation(25, 3)
       .WithArguments("Effects.FLX201_WrongReturnType(IDispatcher)");
 
     var errNoAction = new DiagnosticResult(
         FluxorRules.Flx202EffectMethodMissingAction)
-      .WithLocation(26, 3)
+      .WithLocation(29, 3)
       .WithArguments("Effects.FLX202_NoAction(IDispatcher)");
 
     var errArgumentOrder = new DiagnosticResult(
         FluxorRules.Flx203EffectMethodMissingDispatcher)
-      .WithLocation(30, 3)
+      .WithLocation(33, 3)
       .WithArguments("Effects.FLX203_IncorrectArgumentOrder(IDispatcher, UpdateName)");
 
     var errConsumeDispatcher = new DiagnosticResult(
         FluxorRules.Flx203EffectMethodMissingDispatcher)
-      .WithLocation(34, 3)
+      .WithLocation(37, 3)
       .WithArguments("Effects.FLX203_MissingDispatcher(UpdateName)");
 
     var errToManyArgs = new DiagnosticResult(
         FluxorRules.Flx200EffectMethodSignature)
-      .WithLocation(38, 3)
+      .WithLocation(41, 3)
       .WithArguments("Effects.FLX200_TooManyArguments(UpdateName, string, IDispatcher)");
 
     engine.ExpectedDiagnostics.AddRange(new[]

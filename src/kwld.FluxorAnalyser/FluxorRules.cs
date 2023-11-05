@@ -339,7 +339,6 @@ namespace kwld.FluxorAnalyser
         ctx.ReportDiagnostic(Diagnostic.Create(
           Flx202EffectMethodMissingAction, op.GetLocation(),
           messageArgs: opDef.ShortName()));
-        return;
       }
     }
 
@@ -407,7 +406,6 @@ namespace kwld.FluxorAnalyser
             Flx301ReducerMissingAction,
             op.GetLocation(),
             messageArgs: def.ShortName() ));
-          return;
       }
     }
   }

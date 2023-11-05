@@ -28,10 +28,7 @@ public static class Files
 
     public static string BasicComponent_razor_g()
     {
-      var resourceName = "kwld.FluxorAnalyser.Tests.generated" +
-        ".Microsoft.NET.Sdk.Razor.SourceGenerators" +
-        ".Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator" +
-        ".Assets_BasicComponent_razor.g.cs";
+      var resourceName = "kwld.FluxorAnalyser.Tests.Assets.BasicComponent_razor.g.cs";
 
       using var rd = Assembly.GetExecutingAssembly()
         .GetManifestResourceStream(resourceName);
