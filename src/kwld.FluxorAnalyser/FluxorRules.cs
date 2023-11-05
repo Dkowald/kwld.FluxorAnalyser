@@ -23,7 +23,7 @@ namespace kwld.FluxorAnalyser
     internal const string MetaNameReducerMethod = "Fluxor.ReducerMethodAttribute";
     internal const string MetaNameTask = "System.Threading.Tasks.Task";
 
-    private const string DocBase = "https://github.com/Dkowald/kwd.Tooling/wiki/Rules/";
+    private const string DocBase = "https://github.com/Dkowald/kwld.FluxorAnalyser/wiki/Rules-";
 
     internal static readonly DiagnosticDescriptor Flx001RequireInheritFluxorComponent =
       new DiagnosticDescriptor(id: "FLX001",
@@ -339,7 +339,6 @@ namespace kwld.FluxorAnalyser
         ctx.ReportDiagnostic(Diagnostic.Create(
           Flx202EffectMethodMissingAction, op.GetLocation(),
           messageArgs: opDef.ShortName()));
-        return;
       }
     }
 
@@ -407,7 +406,6 @@ namespace kwld.FluxorAnalyser
             Flx301ReducerMissingAction,
             op.GetLocation(),
             messageArgs: def.ShortName() ));
-          return;
       }
     }
   }

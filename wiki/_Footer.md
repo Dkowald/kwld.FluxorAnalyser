@@ -1,1 +1,1 @@
-kwd.Tooling: [Git](https://github.com/Dkowald/kwd.Tooling)
+kwld.FluxorAnalyser: [Git](https://github.com/Dkowald/kwld.FluxorAnalyser)
