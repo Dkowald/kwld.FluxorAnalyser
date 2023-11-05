@@ -1,8 +1,11 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+
 using Fluxor;
 
 namespace kwld.FluxorAnalyser.Tests.Assets;
+
+//ignore expected faults.
+#pragma warning disable CA1822
 
 internal class Effects
 {

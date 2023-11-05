@@ -13,13 +13,12 @@
 
   <ItemGroup>
     <!--Remove generated files from build-->
-    <Compile Remove="generated/**/*.cs" />
-    <None Include="generated/**/*.cs" />
+    <Compile Remove="generated/**/*.cs;Assets/*.g.cs" />
+    <None Include="generated/**/*.cs;Assets/*.g.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Assets/*" Exclude="Assets/Files.cs" />
-    <EmbeddedResource Include="generated/**/*" />
   </ItemGroup>
   
   <ItemGroup>
