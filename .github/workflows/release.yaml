@@ -20,7 +20,7 @@ on:
       - "v*"
 env:
   PackTarget: "src/kwld.FluxorAnalyser.Package"
-  PackBranches: "main,build,development"
+  PackBranches: "main,build"
 defaults:
   run: 
     shell: pwsh
@@ -79,14 +79,21 @@ jobs:
         dotnet-version: |
           7.0.x
 
+    - uses: actions/cache@v3
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget
+
+    - name: Restore dependencies
+      run: dotnet restore --locked-mode src/
+
     - name: create packages folder
       run: |
         if(!(Test-path -Path packages)) {
           New-Item packages -ItemType Directory
         }
-
-    - name: Restore dependencies
-      run: dotnet restore --locked-mode src/
 
     - name: Test
       run: dotnet test -c Release --verbosity normal --logger trx --results-directory "TestResults" src/
