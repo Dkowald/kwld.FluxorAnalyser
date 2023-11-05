@@ -140,27 +140,27 @@ public class FluxorRulesTest
 
     var errNonAsyncEffect = new DiagnosticResult(
         FluxorRules.Flx201EffectMethodReturn)
-      .WithLocation(22, 3)
+      .WithLocation(25, 3)
       .WithArguments("Effects.FLX201_WrongReturnType(IDispatcher)");
 
     var errNoAction = new DiagnosticResult(
         FluxorRules.Flx202EffectMethodMissingAction)
-      .WithLocation(26, 3)
+      .WithLocation(29, 3)
       .WithArguments("Effects.FLX202_NoAction(IDispatcher)");
 
     var errArgumentOrder = new DiagnosticResult(
         FluxorRules.Flx203EffectMethodMissingDispatcher)
-      .WithLocation(30, 3)
+      .WithLocation(33, 3)
       .WithArguments("Effects.FLX203_IncorrectArgumentOrder(IDispatcher, UpdateName)");
 
     var errConsumeDispatcher = new DiagnosticResult(
         FluxorRules.Flx203EffectMethodMissingDispatcher)
-      .WithLocation(34, 3)
+      .WithLocation(37, 3)
       .WithArguments("Effects.FLX203_MissingDispatcher(UpdateName)");
 
     var errToManyArgs = new DiagnosticResult(
         FluxorRules.Flx200EffectMethodSignature)
-      .WithLocation(38, 3)
+      .WithLocation(41, 3)
       .WithArguments("Effects.FLX200_TooManyArguments(UpdateName, string, IDispatcher)");
 
     engine.ExpectedDiagnostics.AddRange(new[]
