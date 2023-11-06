@@ -94,19 +94,27 @@ jobs:
         if(!(Test-path -Path packages)) {
           New-Item packages -ItemType Directory
         }
-
-    - name: Test
-      run: dotnet test -c Release --verbosity normal --logger trx --results-directory "TestResults" src/
     
     - name: Pack
       run: >
         dotnet pack 
         -c Release 
+        --no-restore
         --include-symbols
         -p:ContinuousIntegrationBuild=true 
         -p PackageVersion=${{needs.check.outputs.build_version}}
         -o packages
         ${{env.PackTarget}}
+    
+    - name: Test
+      run: >
+        dotnet test 
+        -c Release 
+        --no-build 
+        --verbosity normal 
+        --logger trx 
+        --results-directory "TestResults" 
+        src/
     
     - name: Keep package artifact
       uses: actions/upload-artifact@v3
@@ -115,12 +123,12 @@ jobs:
         path: packages/
         if-no-files-found: error
     
-    - name: Nuget publish
-      run: >
-        dotnet nuget push
-        "packages/*.*"
-        --api-key ${{secrets.NUGETPUSH}}
-        --source https://api.nuget.org/v3/index.json
+    # - name: Nuget publish
+    #   run: >
+    #     dotnet nuget push
+    #     "packages/*.*"
+    #     --api-key ${{secrets.NUGETPUSH}}
+    #     --source https://api.nuget.org/v3/index.json
     
     - name: Setup git
       run: |
@@ -149,10 +157,10 @@ jobs:
        git commit --allow-empty -m "release ${{needs.check.outputs.build_version}}"
        git push
     
-    - name: Create release
-      uses: ncipollo/release-action@v1      
-      with:
-        draft: false
-        prerelease: ${{needs.check.outputs.is_preview}}
-        artifacts: "./packages/*"
+    # - name: Create release
+    #   uses: ncipollo/release-action@v1      
+    #   with:
+    #     draft: false
+    #     prerelease: ${{needs.check.outputs.is_preview}}
+    #     artifacts: "./packages/*"
    
