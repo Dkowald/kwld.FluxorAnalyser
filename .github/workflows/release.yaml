@@ -102,6 +102,8 @@ jobs:
         --no-restore
         --include-symbols
         -p:ContinuousIntegrationBuild=true 
+        -p:GeneratePackageOnBuild=false
+        -v:d
         -p PackageVersion=${{needs.check.outputs.build_version}}
         -o packages
         ${{env.PackTarget}}
