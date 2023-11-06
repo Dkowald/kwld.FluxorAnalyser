@@ -102,6 +102,7 @@ jobs:
         -p:GeneratePackageOnBuild=false
         -p:VersionPrefix=${{needs.version_info.outputs.version_prefix}}
         -p:VersionSuffix=${{needs.version_info.outputs.version_suffix}}
+        src/
 
     - name: Pack
       run: >
