@@ -94,18 +94,26 @@ jobs:
           New-Item packages -ItemType Directory
         }
 
+    - name: Build
+      run: > 
+        dotnet build
+        -c Release
+        --no-restore
+        -p:GeneratePackageOnBuild=false
+        -p:VersionPrefix=${{needs.version_info.outputs.version_prefix}}
+        -p:VersionSuffix=${{needs.version_info.outputs.version_suffix}}
+
     - name: Pack
       run: >
         dotnet pack 
         -c Release 
-        --no-restore
+        --no-build
         --include-symbols
         -p:ContinuousIntegrationBuild=true 
         -p:GeneratePackageOnBuild=false
         -p:PackageVersion=${{needs.version_info.outputs.package_version}}
         -p:VersionPrefix=${{needs.version_info.outputs.version_prefix}}
         -p:VersionSuffix=${{needs.version_info.outputs.version_suffix}}
-        -v:d
         -o packages
         ${{env.PackTarget}}
     
@@ -113,7 +121,7 @@ jobs:
       run: >
         dotnet test 
         -c Release 
-        --no-build 
+        --no-build
         --verbosity normal 
         --logger trx 
         --results-directory "TestResults" 
