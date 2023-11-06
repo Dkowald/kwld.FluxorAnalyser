@@ -54,7 +54,7 @@ jobs:
 
           $PackageSuffix = if($VersionSuffix -eq ""){""}else{"-$($VersionSuffix)"}
           $PackageVersion = "$($VersionPrefix)$($PackageSuffix)"
-          echo package-version="$PackageVersion" >> $env:GITHUB_OUTPUT
+          echo package_version="$PackageVersion" >> $env:GITHUB_OUTPUT
     
       - name: results
         run: |
