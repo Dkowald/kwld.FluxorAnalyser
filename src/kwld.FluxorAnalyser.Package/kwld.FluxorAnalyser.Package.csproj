@@ -31,19 +31,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\kwld.FluxorAnalyser\kwld.FluxorAnalyser.csproj" />
+    <ProjectReference Include="../kwld.FluxorAnalyser/kwld.FluxorAnalyser.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Readme.md" Pack="true" PackagePath="" />
-    <Content Include="icon.png" Pack="true" PackagePath="\" />
+    <Content Include="icon.png" Pack="true" PackagePath="/" />
     <None Include="icon.svg" Pack="false" />
-    <None Update="tools\*.ps1" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="" />
+    <None Update="tools/*.ps1" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <Target Name="_AddAnalyzersToOutput">
     <ItemGroup>
-      <TfmSpecificPackageFile Include="$(OutputPath)\kwld.FluxorAnalyser.dll" PackagePath="analyzers/dotnet/cs" />
+      <TfmSpecificPackageFile Include="$(OutputPath)/kwld.FluxorAnalyser.dll" PackagePath="analyzers/dotnet/cs" />
     </ItemGroup>
   </Target>
 
