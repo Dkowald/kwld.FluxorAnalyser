@@ -5,13 +5,11 @@
 # Uses the provided tag as the version.
 #
 # Tag must start with v
-# Only works on selected branches
 #
 # Requires:
 #
 # secrets.NUGETPUSH - to nuget PAT
 #
-
 name: release via tag
 
 on:
@@ -20,7 +18,6 @@ on:
       - "v*"
 env:
   PackTarget: "src/kwld.FluxorAnalyser.Package"
-  PackBranches: "main,build"
 defaults:
   run: 
     shell: pwsh
@@ -135,12 +132,12 @@ jobs:
         path: packages/
         if-no-files-found: error
     
-    # - name: Nuget publish
-    #   run: >
-    #     dotnet nuget push
-    #     "packages/*.*"
-    #     --api-key ${{secrets.NUGETPUSH}}
-    #     --source https://api.nuget.org/v3/index.json
+    - name: Nuget publish
+      run: >
+        dotnet nuget push
+        "packages/*.*"
+        --api-key ${{secrets.NUGETPUSH}}
+        --source https://api.nuget.org/v3/index.json
     
     - name: Setup git
       run: |
