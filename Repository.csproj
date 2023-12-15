@@ -10,7 +10,8 @@ Dummy project to include additional repository files
 		<None Include="./*.*" Exclude="./Repository.csproj" />
     <None Include=".github/**" />
     <None Include=".vscode/**" />
-    <None Include="wiki/**" />
+    <None Include="docs/**" />
+    <None Include="build/**" />
   </ItemGroup>
 	
 </Project>

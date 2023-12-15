@@ -3,12 +3,14 @@ A C# analyser to catch various common mistakes
 when using [Fluxor](https://github.com/mrpmorris/Fluxor/tree/master)
 with attributes.
 
-- [FLX001](Rules-FLX001)
+- [FLX001](rules/FLX001)
   > Blazor component should inherit FluxComponent
-- [FLX101](Rules-FLX101) [FLX102](Rules-FLX102)
+- [FLX101](rules/FLX101) [FLX102](rules/FLX102)
   >Feature state should have FeatureStateAttribute,  
   >and a default constructor
-- [FLX200](Rules-FLX200) [FLX201](Rules-FLX201) [FLX202](Rules-FLX202) [FLX203](Rules-FLX203)
+- [FLX200](rules/FLX200) [FLX201](rules/FLX201) [FLX202](rules/FLX202) [FLX203](rules/FLX203)
   >  Method signature for Effect methods
-- [FLX300](Rules-FLX300) [FLX301](Rules-FLX301) [FLX302](Rules-FLX302) [FLX303](Rules-FLX303) [FLX304](Rules-FLX304)
+- [FLX300](rules/FLX300) [FLX301](rules/FLX301) [FLX302](rules/FLX302) [FLX303](rules/FLX303) [FLX304](rules/FLX304)
   >  Method signature for Reducer methods
+
+---

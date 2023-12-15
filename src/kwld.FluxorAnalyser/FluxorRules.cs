@@ -23,8 +23,6 @@ namespace kwld.FluxorAnalyser
     internal const string MetaNameReducerMethod = "Fluxor.ReducerMethodAttribute";
     internal const string MetaNameTask = "System.Threading.Tasks.Task";
 
-    private const string DocBase = "https://github.com/Dkowald/kwld.FluxorAnalyser/wiki/Rules-";
-
     internal static readonly DiagnosticDescriptor Flx001RequireInheritFluxorComponent =
       new DiagnosticDescriptor(id: "FLX001",
         title: Resources.FLX001_Title,
@@ -32,7 +30,7 @@ namespace kwld.FluxorAnalyser
         messageFormat: Resources.FLX001_Message,
         category: "Reliability",
         defaultSeverity: DiagnosticSeverity.Error,
-        helpLinkUri: DocBase+"FLX001",
+        helpLinkUri: $"{BuildInfo.RulesBaseUrl}FLX001.md",
         isEnabledByDefault: true);
 
     internal static readonly DiagnosticDescriptor Flx101DecorateFeatureState =
@@ -43,8 +41,7 @@ namespace kwld.FluxorAnalyser
        category:"Usage",
        defaultSeverity: DiagnosticSeverity.Error,
        isEnabledByDefault: true,
-       helpLinkUri: DocBase + "FLX101"
-    );
+       helpLinkUri: $"{BuildInfo.RulesBaseUrl}FLX101.md");
 
     internal static readonly DiagnosticDescriptor Flx102FeatureStateDefaultCtor =
       new DiagnosticDescriptor(id: "FLX102",
@@ -54,8 +51,7 @@ namespace kwld.FluxorAnalyser
         category: "Usage",
         defaultSeverity: DiagnosticSeverity.Error,
         isEnabledByDefault: true,
-        helpLinkUri: DocBase + "FLX102"
-      );
+        helpLinkUri: $"{BuildInfo.RulesBaseUrl}FLX102.md");
 
     internal static readonly DiagnosticDescriptor Flx200EffectMethodSignature =
       new DiagnosticDescriptor(id: "FLX200",
@@ -65,7 +61,7 @@ namespace kwld.FluxorAnalyser
         category: "Usage",
         defaultSeverity: DiagnosticSeverity.Error,
         isEnabledByDefault: true, 
-        helpLinkUri: DocBase + "FLX200");
+        helpLinkUri: $"{BuildInfo.RulesBaseUrl}FLX200.md");
 
     internal static readonly DiagnosticDescriptor Flx201EffectMethodReturn =
       new DiagnosticDescriptor(id: "FLX201",
@@ -75,7 +71,7 @@ namespace kwld.FluxorAnalyser
         category: "Usage",
         defaultSeverity: DiagnosticSeverity.Error,
         isEnabledByDefault: true,
-        helpLinkUri: DocBase + "FLX201");
+        helpLinkUri: $"{BuildInfo.RulesBaseUrl}FLX201.md");
 
     internal static readonly DiagnosticDescriptor Flx202EffectMethodMissingAction =
       new DiagnosticDescriptor(id: "FLX202",
@@ -85,7 +81,7 @@ namespace kwld.FluxorAnalyser
         category: "Usage",
         defaultSeverity: DiagnosticSeverity.Error,
         isEnabledByDefault: true,
-        helpLinkUri: DocBase + "FLX202");
+        helpLinkUri: $"{BuildInfo.RulesBaseUrl}FLX202.md");
 
     internal static readonly DiagnosticDescriptor Flx203EffectMethodMissingDispatcher =
       new DiagnosticDescriptor(id: "FLX203",
@@ -95,7 +91,7 @@ namespace kwld.FluxorAnalyser
         category: "Usage",
         defaultSeverity: DiagnosticSeverity.Error,
         isEnabledByDefault: true,
-        helpLinkUri: DocBase + "FLX203");
+        helpLinkUri: $"{BuildInfo.RulesBaseUrl}FLX203.md");
     
     internal static readonly DiagnosticDescriptor Flx300ReducerMethodSignature =
       new DiagnosticDescriptor(id: "FLX300",
@@ -105,7 +101,7 @@ namespace kwld.FluxorAnalyser
         category: "Usage",
         defaultSeverity: DiagnosticSeverity.Error,
         isEnabledByDefault: true,
-        helpLinkUri: DocBase + "FLX300");
+        helpLinkUri: $"{BuildInfo.RulesBaseUrl}FLX300.md");
 
     internal static readonly DiagnosticDescriptor Flx301ReducerMissingAction =
       new DiagnosticDescriptor(id: "FLX301",
@@ -115,7 +111,7 @@ namespace kwld.FluxorAnalyser
         category: "Usage",
         defaultSeverity: DiagnosticSeverity.Error,
         isEnabledByDefault: true,
-        helpLinkUri: DocBase + "FLX301");
+        helpLinkUri: $"{BuildInfo.RulesBaseUrl}FLX301.md");
 
     internal static readonly DiagnosticDescriptor Flx302ReducerMissingState =
       new DiagnosticDescriptor(id: "FLX302",
@@ -125,7 +121,7 @@ namespace kwld.FluxorAnalyser
         category: "Usage",
         defaultSeverity: DiagnosticSeverity.Error,
         isEnabledByDefault: true,
-        helpLinkUri: DocBase + "FLX302");
+        helpLinkUri: $"{BuildInfo.RulesBaseUrl}FLX302.md");
 
     internal static readonly DiagnosticDescriptor Flx303ReducerFirstArgumentIsState =
       new DiagnosticDescriptor(id: "FLX303",
@@ -135,7 +131,7 @@ namespace kwld.FluxorAnalyser
         category: "Usage",
         defaultSeverity: DiagnosticSeverity.Error,
         isEnabledByDefault: true,
-        helpLinkUri: DocBase + "FLX303");
+        helpLinkUri: $"{BuildInfo.RulesBaseUrl}FLX303.md");
 
     internal static readonly DiagnosticDescriptor Flx304ReducerShouldBeStatic =
       new DiagnosticDescriptor(id: "FLX304",
@@ -145,7 +141,7 @@ namespace kwld.FluxorAnalyser
         category: "Reliability",
         defaultSeverity: DiagnosticSeverity.Warning,
         isEnabledByDefault: true,
-        helpLinkUri: DocBase + "FLX304");
+        helpLinkUri: $"{BuildInfo.RulesBaseUrl}FLX304.md");
 
     public override void Initialize(AnalysisContext context)
     {
