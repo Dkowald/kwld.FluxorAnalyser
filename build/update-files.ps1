@@ -10,12 +10,12 @@ $tagName = "v$($PackageVersion)"
 
 $blobRoot = [io.path]::Combine("https://github.com/Dkowald/kwld.FluxorAnalyser/blob/", $tagName)
 
-$file = "../Readme.md"
+$file = "../readme.md"
 if(!(test-path -path $file)){throw "Cannot find target file: $file";}
 $content = (Get-Content $file)
 
 $src = "(docs/Home.md)"
-$target = "(" + [io.path]::Combine($blobRoot, "Readme.md") + ")"
+$target = "(" + [io.path]::Combine($blobRoot, "readme.md") + ")"
 $content = $content.replace($src, $target)
 
 $src= "(https://github.com/Dkowald/kwld.FluxorAnalyser)"
@@ -29,10 +29,13 @@ $content = $content.replace($src, $target)
 Set-Content -path $file -Value $content
 
 $file = "../src/kwld.FluxorAnalyser/BuildInfo.cs"
+if(!(test-path -path $file)){throw "Cannot find target file: $file";}
 $content = (Get-Content $file)
-  $src = "https://github.com/Dkowald/kwld.FluxorAnalyser/blob/main/docs/rules/"
-  $target = $src.replace("main", $tagName)
-  $content = $content.replace($src, $target)
+
+$src = "https://github.com/Dkowald/kwld.FluxorAnalyser/blob/main/docs/rules/"
+$target = $src.replace("main", $tagName)
+$content = $content.replace($src, $target)
+
 Set-Content -path $file -Value $content
 
 pop-location
