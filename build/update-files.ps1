@@ -38,4 +38,14 @@ $content = $content.replace($src, $target)
 
 Set-Content -path $file -Value $content
 
+$file = "../src/kwld.FluxorAnalyser.Package/Readme.md"
+if(!(test-path -path $file)){throw "Cannot find target file: $file";}
+$content = (Get-Content $file)
+
+$src = "https://github.com/Dkowald/kwld.FluxorAnalyser/blob/main/readme.md"
+$target = $src.replace("main", $tagName)
+$content = $content.replace($src, $target)
+
+Set-Content -path $file -Value $content
+
 pop-location

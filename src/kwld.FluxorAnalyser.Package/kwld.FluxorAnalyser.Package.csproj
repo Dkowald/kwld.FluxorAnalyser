@@ -5,7 +5,6 @@
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <IncludeSymbols>true</IncludeSymbols>
     <PackageOutputPath>../../packages</PackageOutputPath>
   </PropertyGroup>
 
@@ -32,6 +31,7 @@
 
   <ItemGroup>
     <ProjectReference Include="../kwld.FluxorAnalyser/kwld.FluxorAnalyser.csproj" />
+    <UpToDateCheckOutput Include="$(PackageOutputPath)/$(PackageId).nupkg"/>
   </ItemGroup>
 
   <ItemGroup>

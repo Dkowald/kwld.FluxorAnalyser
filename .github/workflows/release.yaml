@@ -114,7 +114,6 @@ jobs:
         dotnet pack 
         -c Release 
         --no-build
-        --include-symbols
         -p:ContinuousIntegrationBuild=true 
         -p:GeneratePackageOnBuild=false
         -p:PackageVersion=${{needs.version_info.outputs.package_version}}
