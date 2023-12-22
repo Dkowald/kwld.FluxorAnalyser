@@ -9,14 +9,14 @@
 
   <ItemGroup>
     <PackageReference Include="Fluxor.Blazor.Web" Version="5.9.1" />
-    <!--<PackageReference Include="kwld.FluxorAnalyser" Version="9999.0.0">
+    <PackageReference Include="kwld.FluxorAnalyser" Version="9999.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>-->
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../../src/kwld.FluxorAnalyser/kwld.FluxorAnalyser.csproj" PrivateAssets="all" ReferenceOutputAssembly="false" OutputItemType="Analyzer" SetTargetFramework="TargetFramework=netstandard2.0" />
+    <!--<ProjectReference Include="../../src/kwld.FluxorAnalyser/kwld.FluxorAnalyser.csproj" PrivateAssets="all" ReferenceOutputAssembly="false" OutputItemType="Analyzer" SetTargetFramework="TargetFramework=netstandard2.0" />-->
   </ItemGroup>
 
 </Project>
